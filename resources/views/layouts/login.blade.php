@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('layouts.master')
 
 <?php
     $html_body_attributes = ['class' => 'pace-top'];

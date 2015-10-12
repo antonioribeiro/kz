@@ -83,7 +83,7 @@
                 {{--</ul>--}}
             {{--</li>--}}
 
-            @include('admin.layouts.partials.userTopMenu')
+            @include('layouts.partials.userTopMenu')
         </ul>
         <!-- end header navigation right -->
     </div>

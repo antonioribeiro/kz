@@ -1,11 +1,11 @@
-@extends('admin.layouts.master')
+@extends('layouts.master')
 
 @section('body.contents')
     <!-- begin #page-container -->
     <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
-        @include('admin.layouts.partials.header')
+        @include('layouts.partials.header')
 
-        @include('admin.layouts.partials.sidebar')
+        @include('layouts.partials.sidebar')
 
         @yield('content')
 

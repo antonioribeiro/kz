@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('chat.layouts.master')
 
 @section('contents')
     <h4>Chat</h4>
