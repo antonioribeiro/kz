@@ -23,6 +23,7 @@
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.css" rel="stylesheet" />
+    {{--<link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/red.css" rel="stylesheet" />--}}
     <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
