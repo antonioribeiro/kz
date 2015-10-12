@@ -214,7 +214,7 @@ return [
 			'enabled' => true,
 			'serviceProviders' => ['PragmaRX\Sdk\Services\Form\Service\Provider'],
 			'facades' => [
-				'Form' => 'PragmaRX\Sdk\Services\Form\Service\Facade', /// overrides the Laravel Facade
+				'Form' => 'PragmaRX\Sdk\Services\Form\Service\FormFacade', /// overrides the Laravel Facade
 			]
 		],
 
@@ -222,8 +222,8 @@ return [
 			'name' => 'pragmarx/html',
 			'enabled' => true,
 			'facades' => [
-				'Html' => 'PragmaRX\Sdk\Services\Html\Service\Facade', /// overrides the Laravel Facade
-				'HTML' => 'PragmaRX\Sdk\Services\Html\Service\Facade', /// overrides the Laravel Facade
+				'Html' => 'PragmaRX\Sdk\Services\Form\Service\HtmlFacade', /// overrides the Laravel Facade
+				'HTML' => 'PragmaRX\Sdk\Services\Form\Service\HtmlFacade', /// overrides the Laravel Facade
 			]
 		],
 
@@ -273,6 +273,13 @@ return [
 			'facades' => [
 				'Carbon' => 'Jenssegers\Date\Date',
 			]
+		],
+
+		[
+			'name' => 'pragmarx/sdk/bus',
+			'enabled' => true,
+			'serviceProviders' => ['PragmaRX\Sdk\Services\Bus\Service\Provider'],
+			'facades' => []
 		],
 
 //		[

@@ -5,11 +5,12 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
     </head>
     <body>
         <div class="container">
             <div class="content">
+                @include('notifications.flash')
                 @yield('contents')
             </div>
         </div>
@@ -20,6 +21,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
 
-        @include('pragmarx/sdk::chat.code')
+        @yield('javascript')
     </body>
 </html>

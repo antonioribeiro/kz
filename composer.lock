@@ -909,12 +909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "00f5c917d0de61bf484f20bd04e978b78be97e68"
+                "reference": "2d4dd33f87a604716beb4e03e9526c1a9d4e5a54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/00f5c917d0de61bf484f20bd04e978b78be97e68",
-                "reference": "00f5c917d0de61bf484f20bd04e978b78be97e68",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2d4dd33f87a604716beb4e03e9526c1a9d4e5a54",
+                "reference": "2d4dd33f87a604716beb4e03e9526c1a9d4e5a54",
                 "shasum": ""
             },
             "require": {
@@ -1029,7 +1029,57 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-10-08 14:44:17"
+            "time": "2015-10-09 19:30:42"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "5.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "a4acc4a0ad2c559db35dd0b4766d460d8f44276f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/a4acc4a0ad2c559db35dd0b4766d460d8f44276f",
+                "reference": "a4acc4a0ad2c559db35dd0b4766d460d8f44276f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.1.*",
+                "illuminate/routing": "5.1.*",
+                "illuminate/session": "5.1.*",
+                "illuminate/support": "5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "time": "2015-09-30 01:05:59"
         },
         {
             "name": "league/commonmark",
@@ -1679,12 +1729,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/antonioribeiro/sdk.git",
-                "reference": "a9e1f85aa98be25471ac88e1a764ffebfcb12b2a"
+                "reference": "5da5c7e14d650a6c981a8acfa714b62e50696987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antonioribeiro/sdk/zipball/a9e1f85aa98be25471ac88e1a764ffebfcb12b2a",
-                "reference": "a9e1f85aa98be25471ac88e1a764ffebfcb12b2a",
+                "url": "https://api.github.com/repos/antonioribeiro/sdk/zipball/5da5c7e14d650a6c981a8acfa714b62e50696987",
+                "reference": "5da5c7e14d650a6c981a8acfa714b62e50696987",
                 "shasum": ""
             },
             "require": {
@@ -1694,6 +1744,7 @@
                 "guzzlehttp/guzzle": "~5.0|~6.0",
                 "jenssegers/date": "~3",
                 "laravel/framework": "~5.0",
+                "laravelcollective/html": "5.1.*",
                 "league/commonmark": "~0.9",
                 "php": ">=5.5.0",
                 "pragmarx/firewall": "~0.5",
@@ -1728,7 +1779,7 @@
                     "role": "Creator & Designer"
                 }
             ],
-            "description": "A Laravel 4.2+ Sdk",
+            "description": "A Laravel 5.1+ Sdk",
             "keywords": [
                 "laravel",
                 "pragmarx",
@@ -1738,7 +1789,7 @@
                 "source": "https://github.com/antonioribeiro/sdk/tree/master",
                 "issues": "https://github.com/antonioribeiro/sdk/issues"
             },
-            "time": "2015-10-08 23:14:53"
+            "time": "2015-10-09 20:58:26"
         },
         {
             "name": "pragmarx/support",
@@ -3918,12 +3969,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a94caf98b280a6c74b62651605db394f30185143"
+                "reference": "e128e4f9ff833d9e3ad27d5f68c0ec5fe39c49fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a94caf98b280a6c74b62651605db394f30185143",
-                "reference": "a94caf98b280a6c74b62651605db394f30185143",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e128e4f9ff833d9e3ad27d5f68c0ec5fe39c49fd",
+                "reference": "e128e4f9ff833d9e3ad27d5f68c0ec5fe39c49fd",
                 "shasum": ""
             },
             "require": {
@@ -3982,7 +4033,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-07 21:18:03"
+            "time": "2015-10-09 15:01:39"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
