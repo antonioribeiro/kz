@@ -6,8 +6,8 @@
         <!-- begin brand -->
         <div class="login-header">
             <div class="brand">
-                <span class="logo"></span> Kall Zenter
-                <small>chat para centros de atendimento</small>
+                <img src="{{url('/')}}/assets/images/logo-40px.png" alt=""> Kall Zenter
+                <small>atendimento multicanal para seus clientes</small>
             </div>
             <div class="icon">
                 <i class="fa fa-sign-in"></i>
