@@ -6,11 +6,11 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-13.jpg" alt="" /></a>
+                    <a href="javascript:;"><img src="{{ $current_user->present()->avatar }}" alt="" /></a>
                 </div>
                 <div class="info">
-                    Sean Ngu
-                    <small>Front end developer</small>
+                    {{ $current_user->present()->fullName }}
+                    <small>Administrador</small>
                 </div>
             </li>
         </ul>
@@ -18,17 +18,20 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navegação</li>
-            <li class="has-sub active">
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
+            <li class="active">
+                <a href="{{ route('dashboard') }}">
                     <i class="fa fa-laptop"></i>
-                    <span>Dashboard</span>
+                    <span>Painel de Controle</span>
                 </a>
-                <ul class="sub-menu">
-                    <li><a href="index.html">Dashboard v1</a></li>
-                    <li class="active"><a href="index_v2.html">Dashboard v2</a></li>
-                </ul>
             </li>
+
+            <li>
+                <a href="{!! route('chat') !!} ">
+                    <i class="fa fa-whatsapp"></i>
+                    <span>Chat</span>
+                </a>
+            </li>
+
             {{--<li class="has-sub">--}}
                 {{--<a href="javascript:;">--}}
                     {{--<span class="badge pull-right">10</span>--}}

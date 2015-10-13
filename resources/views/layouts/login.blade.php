@@ -14,7 +14,26 @@
 
     <!-- begin #page-container -->
     <div id="page-container" class="fade">
-        @yield('content')
+        <!-- begin login template -->
+        <div class="login login-v2">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <img src="{{url('/')}}/assets/images/logo-40px.png" alt=""> Kall Zenter
+                    <small>atendimento multicanal para seus clientes</small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sign-in"></i>
+                </div>
+            </div>
+            <!-- end brand -->
+            <div class="login-content">
+                @include('notifications.flash')
+
+                @yield('content')
+            </div>
+        </div>
+        <!-- end login template -->
     </div>
     <!-- end page container -->
 @stop

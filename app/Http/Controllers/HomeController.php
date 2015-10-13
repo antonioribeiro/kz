@@ -13,6 +13,6 @@ class HomeController extends Controller
 			return view('home.landing');
 		}
 
-		return view('home.index');
+		return view('home.dashboard');
 	}
 }
