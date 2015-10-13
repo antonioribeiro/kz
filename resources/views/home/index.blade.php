@@ -6,12 +6,12 @@
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="javascript:;">Home</a></li>
-            <li><a href="javascript:;">Dashboard</a></li>
-            <li class="active">Dashboard v2</li>
+            <li><a href="{{ route('dashboard') }}">Painel de Controle</a></li>
+            <li class="active">Chat</li>
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Dashboard v2 <small>header small text goes here...</small></h1>
+        <h1 class="page-header">Chat <small>header small text goes here...</small></h1>
         <!-- end page-header -->
 
         <!-- begin row -->

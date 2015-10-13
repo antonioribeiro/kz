@@ -1,7 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('home.landing');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'HomeController@index']);
 
-Route::get('import', ['uses' => 'ImporterController@import']);
+Route::get('import', ['as' => 'import', 'uses' => 'ImporterController@import']);
