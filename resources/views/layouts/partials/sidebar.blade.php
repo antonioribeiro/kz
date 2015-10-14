@@ -26,7 +26,7 @@
             </li>
 
             <li>
-                <a href="{!! route('chat') !!} ">
+                <a href="{!! route('chat.server.index') !!} ">
                     <i class="fa fa-whatsapp"></i>
                     <span>Chat</span>
                 </a>

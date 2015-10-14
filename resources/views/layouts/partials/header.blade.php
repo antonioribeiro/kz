@@ -4,7 +4,9 @@
     <div class="container-fluid">
         <!-- begin mobile sidebar expand / collapse button -->
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> Color Admin</a>
+            <a href="index.html" class="navbar-brand">
+                <img src="{{url('/')}}/assets/images/logo-email.png" alt="">
+            </a>
             <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
