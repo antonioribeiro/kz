@@ -1,12 +1,17 @@
-@extends('layouts.simple')
+@extends('layouts.message')
 
-@section('contents')
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span10">
-            <div class="member-box">
-                @include('notifications.notification-body')
-            </div>
-        </div>
-    </div>
+@section('error-code')
+    {!! $title !!}
+@stop
+
+@section('error-message')
+    {!! $message !!}
+@stop
+
+@section('error-buttons')
+    @if ($buttons)
+        @foreach($buttons as $button)
+            <a href="{!! $button['url'] !!}" class="btn btn-danger btn-lg">{{ $button['caption'] }}</a>
+        @endforeach
+    @endif
 @stop

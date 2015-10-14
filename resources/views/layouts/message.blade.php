@@ -14,9 +14,7 @@
                 @yield('error-description')
             </div>
             <div>
-                <a href="@yield('error-button-url')" class="btn btn-success">
-                    @yield('error-button-caption')
-                </a>
+                @yield('error-buttons')
 
                 @yield('extra-html')
             </div>

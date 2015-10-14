@@ -13,14 +13,12 @@
     Para maiores informações, por favor entre em contato com Antonio Carlos Ribeiro no telefone <strong>(21)9-8088-2233</strong>.
 @stop
 
-@section('error-button-caption')
-    Voltar ao site principal
-@stop
+@section('error-buttons')
+    <a href="/" class="btn btn-success">
+        Voltar ao site principal
+    </a>
 
-@section('extra-html')
     <a href="/auth/login" class="btn btn-primary">
         Eu tenho uma conta
     </a>
 @stop
-
-@section('error-button-url')/@stop

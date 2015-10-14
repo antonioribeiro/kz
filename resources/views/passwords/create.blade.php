@@ -7,7 +7,7 @@
         </div>
 
         <div class="login-buttons">
-            <button type="submit" class="btn btn-success btn-block btn-lg">Trocar minha senha</button>
+            <button type="submit" class="btn btn-success btn-block btn-lg">Solicitar troca da senha</button>
         </div>
 
         <div class="m-t-20">
