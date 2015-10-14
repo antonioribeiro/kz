@@ -23,6 +23,8 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$view->with('html_attributes', '');
 
+			$view->with('html_appname', Config::get('app.name'));
+
 			$view->with('html_title', Config::get('app.name'));
 
 			$view->with('html_keywords', 'call center, callcenter, chat, whatsapp, telegram, operador, atendimento');

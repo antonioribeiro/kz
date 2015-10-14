@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-    {!! Form::opener(['route' => 'auth.login', 'class' => 'smart-form client-form', 'id' => 'smart-form-register', 'no-return-ajax-url' => true]) !!}
+    {!! Form::opener(['route' => 'password', 'class' => 'smart-form client-form', 'id' => 'smart-form-register', 'no-return-ajax-url' => true]) !!}
         <div class="form-group m-b-20">
             {!! Form::text('email', null, ['id' => 'email', 'type' => 'email', 'class' => 'form-control input-lg', 'placeholder' => 'Endereço de e-mail', 'autofocus']) !!}
         </div>
