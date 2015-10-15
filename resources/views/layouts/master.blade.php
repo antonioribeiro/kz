@@ -22,8 +22,8 @@
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
-    <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.css" rel="stylesheet" />
-    {{--<link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/red.css" rel="stylesheet" />--}}
+    {{--<link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.css" rel="stylesheet" />--}}
+    <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/red.css" rel="stylesheet" />
     <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
@@ -57,8 +57,8 @@
     <!-- ================== END BASE JS ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/raphael.min.js"></script>
-    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.js"></script>
+    {{--<script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/raphael.min.js"></script>--}}
+    {{--<script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.js"></script>--}}
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/jquery-jvectormap/jquery-jvectormap-world-merc-en.js"></script>
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js"></script>

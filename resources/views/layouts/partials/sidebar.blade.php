@@ -18,14 +18,14 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navegação</li>
-            <li class="active">
+            <li class="{{ set_menu_active('dashboard') }}">
                 <a href="{{ route('dashboard') }}">
                     <i class="fa fa-laptop"></i>
                     <span>Painel de Controle</span>
                 </a>
             </li>
 
-            <li>
+            <li class="{{ set_menu_active('chat/server') }}">
                 <a href="{!! route('chat.server.index') !!} ">
                     <i class="fa fa-whatsapp"></i>
                     <span>Chat</span>

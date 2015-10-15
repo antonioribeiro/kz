@@ -21,68 +21,88 @@
                 <!-- begin panel -->
                 <div class="panel panel-inverse" data-sortable-id="index-4">
                     <div class="panel-heading">
-                        <h4 class="panel-title">New Registered Users <span class="pull-right label label-success">24 new users</span></h4>
+                        <h4 class="panel-title">Chats <span class="pull-right label label-success">4 sessões</span></h4>
                     </div>
-                    <ul class="registered-users-list clearfix">
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-5.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Savory Posh
-                                <small>Algerian</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-3.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Ancient Caviar
-                                <small>Korean</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-1.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Marble Lungs
-                                <small>Indian</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-8.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Blank Bloke
-                                <small>Japanese</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-2.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Hip Sculling
-                                <small>Cuban</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-6.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Flat Moon
-                                <small>Nepalese</small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-4.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Packed Puffs
-                                <small>Malaysian></small>
-                            </h4>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-9.jpg" alt="" /></a>
-                            <h4 class="username text-ellipsis">
-                                Clay Hike
-                                <small>Swedish</small>
-                            </h4>
-                        </li>
-                    </ul>
-                    <div class="panel-footer text-center">
-                        <a href="javascript:;" class="text-inverse">View All</a>
+                    <div class="panel-body">
+                        <div class="media media-sm">
+                            <a class="media-left" href="javascript:;">
+                                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-1.jpg" alt="" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="media-heading">João da Silva</h4>
+                                        <span class="label label-primary"><i class="fa fa-envelope"></i> Telegram</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="btn btn-danger pull-right">
+                                            ANTONIO CARLOS<br>
+                                            <strong>em atendimento</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media media-sm">
+                            <a class="media-left" href="javascript:;">
+                                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-2.jpg" alt="" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="media-heading">Fulano de Sicrano</h4>
+                                        <p>
+                                            <span class="label label-danger"><i class="fa fa-comment"></i> Chat</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="btn btn-lg btn-success pull-right">
+                                            <strong>ATENDER</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media media-sm">
+                            <a class="media-left" href="javascript:;">
+                                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-4.jpg" alt="" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="media-heading">Dona Flor</h4>
+                                        <p>
+                                            <span class="label label-success"><i class="fa fa-whatsapp"></i> WhatsApp</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="btn btn-lg btn-success pull-right">
+                                            <strong>ATENDER</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media media-sm">
+                            <a class="media-left" href="javascript:;">
+                                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-10.jpg" alt="" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="media-heading">Ariano Suassuna</h4>
+                                        <p>
+                                            <span class="label label-primary"><i class="fa fa-envelope"></i> Telegram</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="btn btn-lg btn-success pull-right">
+                                            <strong>ATENDER</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- end panel -->
@@ -90,14 +110,14 @@
             <!-- end col-4 -->
 
             <!-- begin col-8 -->
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <!-- begin panel -->
                 <div class="panel panel-inverse" data-sortable-id="index-2">
                     <div class="panel-heading">
                         <h4 class="panel-title">Chat History <span class="label label-success pull-right">4 message</span></h4>
                     </div>
                     <div class="panel-body bg-silver">
-                        <div data-scrollbar="true" data-height="225px">
+                        <div data-scrollbar="true" data-height="425px">
                             <ul class="chats">
                                 <li class="left">
                                     <span class="date-time">yesterday 11:23pm</span>
@@ -137,9 +157,9 @@
                     <div class="panel-footer">
                         <form name="send_message_form" data-id="message-form">
                             <div class="input-group">
-                                <input type="text" class="form-control input-sm" name="message" placeholder="Enter your message here.">
+                                <input type="text" class="form-control input-sm" name="message" placeholder="Digite sua mensagem aqui">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-primary btn-sm" type="button">Send</button>
+                                        <button class="btn btn-primary btn-sm" type="button">Enviar</button>
                                     </span>
                             </div>
                         </form>
@@ -147,8 +167,55 @@
                 </div>
                 <!-- end panel -->
             </div>
-            <!-- end col-8 -->
+            <!-- end col-6 -->
 
+            <div class="col-md-3">
+                <div class="panel panel-inverse" data-sortable-id="ui-buttons-4">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                        </div>
+                        <h4 class="panel-title">Textos</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="note note-info">
+                            <p>
+                                Olá, você está no Alô Alerj, meu nome é [operador], como posso ajudar?
+                                <br><br>
+                                <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                                <br>
+                            </p>
+                        </div>
+                        <div class="note note-success">
+                            <p>
+                                Precisamos de alguns dados seus: Nome completo, CPF, endereço, cep, telefone.
+                                <br><br>
+                                <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                                <br>
+                            </p>
+                        </div>
+                        <div class="note note-danger">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad architecto consequatur eius fugiat ipsum odio officiis perferendis reiciendis temporibus.
+                                <br><br>
+                                <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                                <br>
+                            </p>
+                        </div>
+                        <div class="note note-info">
+                            <p>
+                                Incidunt itaque laboriosam nisi, nulla placeat, possimus quae reprehenderit repudiandae tenetur voluptatum.
+                                <br><br>
+                                <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                                <br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- end row -->
     </div>
