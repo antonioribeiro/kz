@@ -11,7 +11,7 @@
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Chat <small>header small text goes here...</small></h1>
+        <h1 class="page-header">Chat</h1>
         <!-- end page-header -->
 
         <!-- begin row -->
@@ -35,7 +35,7 @@
                                         <span class="label label-primary"><i class="fa fa-envelope"></i> Telegram</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="btn btn-danger pull-right">
+                                        <label class="btn btn-sm btn-danger pull-right">
                                             ANTONIO CARLOS<br>
                                             <strong>em atendimento</strong>
                                         </label>
@@ -56,7 +56,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="btn btn-lg btn-success pull-right">
+                                        <label class="btn btn-success pull-right">
                                             <strong>ATENDER</strong>
                                         </label>
                                     </div>
@@ -76,7 +76,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="btn btn-lg btn-success pull-right">
+                                        <label class="btn btn-success pull-right">
                                             <strong>ATENDER</strong>
                                         </label>
                                     </div>
@@ -96,7 +96,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="btn btn-lg btn-success pull-right">
+                                        <label class="btn btn-success pull-right">
                                             <strong>ATENDER</strong>
                                         </label>
                                     </div>
@@ -110,11 +110,11 @@
             <!-- end col-4 -->
 
             <!-- begin col-8 -->
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <!-- begin panel -->
                 <div class="panel panel-inverse" data-sortable-id="index-2">
                     <div class="panel-heading">
-                        <h4 class="panel-title">Chat History <span class="label label-success pull-right">4 message</span></h4>
+                        <h4 class="panel-title">Chat Atual <span class="label label-success pull-right">4 mensagens</span></h4>
                     </div>
                     <div class="panel-body bg-silver">
                         <div data-scrollbar="true" data-height="425px">
@@ -158,9 +158,9 @@
                         <form name="send_message_form" data-id="message-form">
                             <div class="input-group">
                                 <input type="text" class="form-control input-sm" name="message" placeholder="Digite sua mensagem aqui">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary btn-sm" type="button">Enviar</button>
-                                    </span>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" type="button">Enviar</button>
+                                </span>
                             </div>
                         </form>
                     </div>
@@ -169,7 +169,7 @@
             </div>
             <!-- end col-6 -->
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="panel panel-inverse" data-sortable-id="ui-buttons-4">
                     <div class="panel-heading">
                         <div class="panel-heading-btn">

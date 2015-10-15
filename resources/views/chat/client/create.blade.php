@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                {!! Form::opener(['url' => '/chat/create']) !!}
+                {!! Form::opener(['route' => 'chat.client.store']) !!}
                     <div class="form-group">
                         <label for="name">Nome</label>
                         {!! Form::text('name') !!}

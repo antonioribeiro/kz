@@ -18,7 +18,7 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navegação</li>
-            <li class="{{ set_menu_active('dashboard') }}">
+            <li class="{{ set_menu_active('dashboard') ?: set_menu_active('/') }}">
                 <a href="{{ route('dashboard') }}">
                     <i class="fa fa-laptop"></i>
                     <span>Painel de Controle</span>
