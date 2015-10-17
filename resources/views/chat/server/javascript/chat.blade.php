@@ -1,3 +1,5 @@
+@include('chat.server.javascript.components')
+
 <script>
     var socket = io('{{ url() . ':' . env('CHAT_PORT', '23172') }}');
 
@@ -8,6 +10,7 @@
         data: {
             chats: [],
             chatCount: 0,
+            currentChatId: false
         },
 
         methods:
@@ -30,14 +33,28 @@
                     function(data, status, request)
                     {
                         this.chats = data;
-                        this.chatCount = Object.keys(data).length;
                     }
                 );
             },
 
             __respond: function(chat)
             {
-                this.currentChat = chat;
+                this.currentChatId = chat.id;
+            },
+
+            __getCurrentChat: function()
+            {
+                return this.chats[this.currentChatId];
+            },
+
+            __getChatCount: function()
+            {
+                return Object.keys(this.chats).length
+            },
+
+            __terminateChat: function()
+            {
+                this.currentChatId = null;
             }
         },
 

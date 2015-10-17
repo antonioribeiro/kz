@@ -29,6 +29,8 @@
     <!-- ================== BEGIN BASE JS ================== -->
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/pace/pace.min.js"></script>
     <!-- ================== END BASE JS ================== -->
+
+    <link href="{{url('/')}}/assets/css/main-server.css" rel="stylesheet" />
 @stop
 
 @section('html.body')

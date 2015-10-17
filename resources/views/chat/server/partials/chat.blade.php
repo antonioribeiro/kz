@@ -4,10 +4,10 @@
         <h4 class="panel-title">
             <div class="row">
                 <div class="col-md-2">
-                    <span class="label label-danger"><i class="fa fa-comment"></i> Chat</span>
+                    <chatservice chat-service="@{{ __getCurrentChat().service }}"></chatservice>
                 </div>
                 <div class="col-md-8" style="text-align: center; font-size: 1.3em;">
-                    ANTONIO CARLOS RIBEIRO
+                    @{{ __getCurrentChat().talker.fullName }}
                 </div>
                 <div class="col-md-2">
                     <span class="label label-success pull-right">4 mensagens</span>
@@ -62,6 +62,9 @@
                 </span>
             </div>
         </form>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-red btn-sm" v-on="click: __terminateChat">Encerrar</button>
     </div>
 </div>
 <!-- end chat panel -->

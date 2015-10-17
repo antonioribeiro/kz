@@ -23,8 +23,11 @@
             <!-- end col-4 -->
 
             <!-- begin col-6 -->
-            <div class="col-md-6">
+            <div class="col-md-6" v-if="currentChatId" v-transition="bounce">
                 @include('chat.server.partials.chat')
+            </div>
+            <div class="col-md-6" v-if=" ! currentChatId">
+                @include('chat.server.partials.no-chat')
             </div>
             <!-- end col-6 -->
 
