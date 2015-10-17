@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- begin #content -->
-    <div id="content" class="content">
+    <div id="vue-chat" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="javascript:;">Home</a></li>
@@ -35,4 +35,8 @@
         <!-- end row -->
     </div>
     <!-- end #content -->
+@stop
+
+@section('javascript')
+    @include('chat.server.javascript.chat')
 @stop

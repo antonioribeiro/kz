@@ -64,6 +64,11 @@
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js"></script>
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/gritter/js/jquery.gritter.js"></script>
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/dashboard-v2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.16/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
+
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/apps.min.js"></script>
     <!-- ================== END PAGE LEVEL JS ================== -->
 

@@ -1,84 +1,31 @@
 <!-- begin talkers panel -->
-<div class="panel panel-inverse" data-sortable-id="index-4">
+<div class="panel panel-inverse" data-sortable-id="index-4" id="talkers">
     <div class="panel-heading">
-        <h4 class="panel-title">Chats <span class="pull-right label label-success">4 sessões</span></h4>
+        <h4 class="panel-title">Chats <span class="pull-right label label-success">@{{ chatCount }} sessões</span></h4>
     </div>
     <div class="panel-body">
-        <div class="media media-sm">
+        <div class="media media-sm" v-repeat="chat: chats">
             <a class="media-left" href="javascript:;">
-                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-1.jpg" alt="" class="media-object">
+                <img src="@{{ chat.talker.avatar }}" alt="" class="media-object">
             </a>
             <div class="media-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4 class="media-heading">João da Silva</h4>
-                        <span class="label label-primary"><i class="fa fa-envelope"></i> Telegram</span>
+                        <h5 class="media-heading">@{{ chat.talker.fullName }}</h5>
+                        <span class="label label-primary" v-if="chat.service == 'telegram'"><i class="fa fa-envelope"></i> Telegram</span>
+                        <span class="label label-danger" v-if="chat.service == 'chat'"><i class="fa fa-comment"></i> Chat</span>
+                        <span class="label label-success" v-if="chat.service == 'whatsapp'"><i class="fa fa-whatsapp"></i> WhatsApp</span>
                     </div>
+
                     <div class="col-md-6">
-                        <label class="btn btn-sm btn-danger pull-right">
+                        <label class="btn btn-sm btn-danger pull-right" v-if="responder">
                             ANTONIO CARLOS<br>
                             <strong>em atendimento</strong>
                         </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="media media-sm">
-            <a class="media-left" href="javascript:;">
-                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-2.jpg" alt="" class="media-object">
-            </a>
-            <div class="media-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="media-heading">Fulano de Sicrano</h4>
-                        <p>
-                            <span class="label label-danger"><i class="fa fa-comment"></i> Chat</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="btn btn-success pull-right">
+
+                        <button class="btn btn-sm btn-success pull-right" v-if=" ! responder" v-on="click: __respond(chat)">
                             <strong>ATENDER</strong>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="media media-sm">
-            <a class="media-left" href="javascript:;">
-                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-4.jpg" alt="" class="media-object">
-            </a>
-            <div class="media-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="media-heading">Dona Flor</h4>
-                        <p>
-                            <span class="label label-success"><i class="fa fa-whatsapp"></i> WhatsApp</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="btn btn-success pull-right">
-                            <strong>ATENDER</strong>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="media media-sm">
-            <a class="media-left" href="javascript:;">
-                <img src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/img/user-10.jpg" alt="" class="media-object">
-            </a>
-            <div class="media-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="media-heading">Ariano Suassuna</h4>
-                        <p>
-                            <span class="label label-primary"><i class="fa fa-envelope"></i> Telegram</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="btn btn-success pull-right">
-                            <strong>ATENDER</strong>
-                        </label>
+                        </button>
                     </div>
                 </div>
             </div>
