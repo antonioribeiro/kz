@@ -34,8 +34,6 @@
                     function(data, status, request)
                     {
                         this.chats = data;
-
-                        console.log(data['6eec0cd3-8d4a-4f13-88f4-2a6eef96d584'].messages);
                     }
                 );
             },
