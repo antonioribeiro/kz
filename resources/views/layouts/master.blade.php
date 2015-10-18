@@ -25,6 +25,10 @@
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     {{--<link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/morris/morris.css" rel="stylesheet" />--}}
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/red.css" rel="stylesheet" />
+
+    <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
     <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
     <!-- ================== BEGIN BASE JS ================== -->
@@ -72,6 +76,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
 
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+    {{--<script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.colvis.min.js"></script>--}}
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/table-manage-buttons.demo.min.js"></script>
+
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/apps.min.js"></script>
     <!-- ================== END PAGE LEVEL JS ================== -->
 
@@ -79,6 +94,7 @@
         $(document).ready(function() {
             App.init();
             DashboardV2.init();
+            TableManageButtons.init();
         });
     </script>
 

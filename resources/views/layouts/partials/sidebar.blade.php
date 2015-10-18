@@ -10,7 +10,7 @@
                 </div>
                 <div class="info">
                     {{ $current_user->present()->fullName }}
-                    <small>Administrador</small>
+                    <small>{{ $current_user->present()->businessRole->description }}</small>
                 </div>
             </li>
         </ul>
@@ -29,6 +29,13 @@
                 <a href="{!! route('chat.server.index') !!} ">
                     <i class="fa fa-whatsapp"></i>
                     <span>Chat</span>
+                </a>
+            </li>
+
+            <li class="{{ set_menu_active('businesses/users') }}">
+                <a href="{!! route('businesses.users.index') !!} ">
+                    <i class="fa fa-users"></i>
+                    <span>Usuários</span>
                 </a>
             </li>
 
