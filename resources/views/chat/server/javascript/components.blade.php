@@ -1,5 +1,4 @@
 <script>
-
     Vue.component('chatservice',
     {
         template: '#vue-component-chat-service',
@@ -14,5 +13,4 @@
             }
         }
     });
-
 </script>

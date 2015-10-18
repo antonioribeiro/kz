@@ -16,6 +16,7 @@
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/style.min.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/style-responsive.min.css" rel="stylesheet" />
     <link href="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" rel="stylesheet" />
     <!-- ================== END BASE CSS STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->

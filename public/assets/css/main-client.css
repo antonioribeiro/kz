@@ -63,3 +63,7 @@
     margin-right: 10px;
     margin-top: -5px;
 }
+
+.chat-avatar {
+    max-width: 60px;
+}

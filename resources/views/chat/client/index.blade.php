@@ -29,7 +29,7 @@
                         <ul class="chat">
                             <li v-repeat="message: messages" class="@{{ message.pull }} clearfix">
                                 <span class="chat-img pull-@{{ message.pull }}">
-                                    <img src="@{{ message.photo }}" alt="User Avatar" class="img-circle"/>
+                                    <img src="@{{ message.photo }}" alt="User Avatar" class="img-circle chat-avatar"/>
                                 </span>
 
                                 <div class="chat-body clearfix" v-if="message.isOperator">

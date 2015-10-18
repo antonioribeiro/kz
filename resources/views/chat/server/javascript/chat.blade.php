@@ -10,7 +10,8 @@
         data: {
             chats: [],
             chatCount: 0,
-            currentChatId: false
+            currentChatId: false,
+            socketConnected: false,
         },
 
         methods:
@@ -42,9 +43,26 @@
                 this.currentChatId = chat.id;
             },
 
-            __getCurrentChat: function()
+            __getFromCurrentChat: function(props)
             {
-                return this.chats[this.currentChatId];
+                if ( ! this.currentChatId)
+                {
+                    return null;
+                }
+
+                return this.__getProperty(this.chats[this.currentChatId], props);
+            },
+
+            __getProperty: function(obj, props)
+            {
+                props = props.split('.');
+
+                for (var prop in props)
+                {
+                    obj = obj[props[prop]];
+                }
+
+                return obj;
             },
 
             __getChatCount: function()
@@ -62,30 +80,30 @@
         {
             this.__loadChats();
 
-            {{--socket.on('connect', function(data)--}}
-            {{--{--}}
-                {{--this.connected = true;--}}
-            {{--}.bind(this));--}}
+            socket.on('connect', function(data)
+            {
+                this.socketConnected = true;
+            }.bind(this));
 
-            {{--socket.on('disconnect', function(data)--}}
-            {{--{--}}
-                {{--this.connected = false;--}}
-            {{--}.bind(this));--}}
+            socket.on('disconnect', function(data)
+            {
+                this.socketConnected = false;
+            }.bind(this));
 
-            {{--socket.on('{{ $listenChannel }}', function(data)--}}
-            {{--{--}}
+            socket.on('{{ $listenChannel }}', function(data)
+            {
                 {{--var isOperator = data.username == '{{ $operatorUsername }}';--}}
 
-                {{--var message = {--}}
-                    {{--"isOperator": isOperator,--}}
-                    {{--"username": data.username,--}}
-                    {{--"message": data.message,--}}
-                    {{--"pull": isOperator ? 'left' : 'right',--}}
+                var message = {
+                    "isOperator": isOperator,
+                    "username": data.username,
+//                    "message": data.message,
+//                    "pull": isOperator ? 'left' : 'right',
                     {{--"photo": isOperator ? '{!! $operatorAvatar !!}' : '{!! $talkerAvatar !!}',--}}
-                {{--};--}}
+                };
 
-                {{--this.messages.push(message);--}}
-            {{--}.bind(this));--}}
+                this.messages.push(message);
+            }.bind(this));
         }
     });
 </script>
