@@ -21,25 +21,29 @@
 
         <!-- begin row -->
         <div class="row" v-if="__getChatCount()">
-            <!-- begin col-4 -->
-            <div class="col-md-4 animated bounceInDown">
+            <!-- talkers -->
+            <div class="col-sm-6 col-md-4 animated bounceInDown">
                 @include('chat.server.partials.talkers')
             </div>
-            <!-- end col-4 -->
+            <!-- /talkers -->
 
-            <!-- begin col-6 -->
-            <div class="col-md-6 animated bounceInDown" v-if="currentChatId">
-                @include('chat.server.partials.chat')
-            </div>
-
-            <div class="col-md-6 animated bounceInDown" v-if=" ! currentChatId">
+            <!-- no-chat -->
+            <div class="col-sm-6 col-md-8 animated bounceInDown" v-if=" ! currentChatId">
                 @include('chat.server.partials.no-chat')
             </div>
-            <!-- end col-6 -->
+            <!-- /no-chat -->
 
-            <div class="col-md-2 animated bounceInDown" v-if="currentChatId">
+            <!-- chat -->
+            <div class="col-sm-6 col-md-6 animated bounceInDown" v-if="currentChatId">
+                @include('chat.server.partials.chat')
+            </div>
+            <!-- /chat -->
+
+            <!-- texts -->
+            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">
                 @include('chat.server.partials.texts')
             </div>
+            <!-- /texts -->
         </div>
         <!-- end row -->
     </div>
