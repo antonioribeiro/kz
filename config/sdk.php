@@ -43,6 +43,7 @@ return [
 //		'Services/Billing',
 //		'Services/Block',
 		'Services/Bus',
+		'Services/Businesses',
 
 		'Services/Chat',
 //		'Services/Cities',
