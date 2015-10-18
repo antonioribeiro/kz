@@ -20,6 +20,7 @@
         <div class="row">
             @include('components.table',
                 [
+                    'title' => 'Usuários',
                     'includeButtons' => 'businesses.users.partials.table-buttons',
                     'columns' => $columns = [
                                     'first_name' => 'Nome',

@@ -15,7 +15,7 @@
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
             </div>
-            <h4 class="panel-title">Usuários</h4>
+            <h4 class="panel-title">{{ $title }}</h4>
         </div>
 
         <div class="panel-body">
@@ -43,3 +43,53 @@
     </div>
     <!-- end panel -->
 </div>
+
+@section('component-javascript')
+    <script>
+        var handleDataTableButtons = function () {
+            "use strict";
+            0 !== $("#data-table").length && $("#data-table").DataTable(
+            {
+                dom: "Bfrtip",
+                buttons: [
+                    {extend: "copy", className: "btn-sm"},
+                    {extend: "csv", className: "btn-sm"},
+                    {extend: "excel", className: "btn-sm"},
+                    {extend: "pdf", className: "btn-sm"},
+                    {extend: "print", className: "btn-sm"}
+                ],
+                responsive: !0,
+                language: {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                }
+            })
+        }, TableManageButtons = function () {
+            "use strict";
+            return {
+                init: function () {
+                    handleDataTableButtons()
+                }
+            }
+        }();
+    </script>
+@stop

@@ -1,3 +1,3 @@
 <button class="btn btn-primary btn-xs">
-    Novo usuário
+    <i class="fa fa-plus"></i> Novo usuário
 </button>

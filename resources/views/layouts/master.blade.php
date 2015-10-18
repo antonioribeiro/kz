@@ -85,7 +85,6 @@
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
     {{--<script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Buttons/js/buttons.colvis.min.js"></script>--}}
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/table-manage-buttons.demo.min.js"></script>
 
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/apps.min.js"></script>
     <!-- ================== END PAGE LEVEL JS ================== -->
@@ -99,4 +98,5 @@
     </script>
 
     @yield('javascript')
+    @yield('component-javascript')
 @stop
