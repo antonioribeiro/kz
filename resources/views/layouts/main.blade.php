@@ -2,10 +2,13 @@
 
 @section('body.contents')
     <!-- begin #page-container -->
-    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+    <div id="page-container" class="page-container fade page-without-sidebar page-header-fixed page-with-top-menu in">
+
         @include('layouts.partials.header')
 
-        @include('layouts.partials.sidebar')
+        {{--@include('layouts.partials.sidebar')--}}
+
+        @include('layouts.partials.topmenu')
 
         @yield('content')
 

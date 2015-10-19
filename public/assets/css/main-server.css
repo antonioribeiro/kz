@@ -9,3 +9,15 @@
     -vendor-animation-delay: 3s;
     -vendor-animation-iteration-count: infinite;
 }
+
+.user-position {
+    position: absolute;
+    left: 55px;
+    top: 30px;
+    display: block;
+    font-weight: 800;
+}
+
+.user-name {
+
+}

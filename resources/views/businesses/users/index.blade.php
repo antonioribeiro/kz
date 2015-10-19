@@ -23,11 +23,12 @@
                     'title' => 'Usuários',
                     'includeButtons' => 'businesses.users.partials.table-buttons',
                     'columns' => $columns = [
-                                    'first_name' => 'Nome',
-                                    'last_name' => 'Sobrenome',
-                                    'email' => 'E-mail',
-                                    'role' => 'Cargo',
-                                ],
+                        'first_name' => 'Nome',
+                        'last_name' => 'Sobrenome',
+                        'businessClient' => 'Cliente',
+                        'email' => 'E-mail',
+                        'role' => 'Cargo',
+                    ],
                     'rows' => $users,
                 ]
             )
