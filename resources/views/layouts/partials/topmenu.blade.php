@@ -15,7 +15,7 @@
             </a>
         </li>
 
-        <li class="{{ set_menu_active('businesses/users') }}">
+        <li class="{{ set_menu_active('businesses/users') ?: set_menu_active('businesses/users/create') }}">
             <a href="{!! route('businesses.users.index') !!} ">
                 <i class="fa fa-users"></i>
                 <span>Usuários</span>

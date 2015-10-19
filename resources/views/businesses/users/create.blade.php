@@ -17,11 +17,9 @@
         <h1 class="page-header">Novo Usuário <small>digite os dados abaixo</small></h1>
         <!-- end page-header -->
 
-        <!-- begin row -->
-        <div class="row">
+        <!-- begin form -->
             @include('businesses.users.partials.userform')
-        </div>
-        <!-- end row -->
+        <!-- end form -->
     </div>
     <!-- end #content -->
 @stop
