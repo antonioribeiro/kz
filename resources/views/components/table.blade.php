@@ -26,6 +26,10 @@
                             @foreach($columns as $column)
                                 <th>{{ $column }}</th>
                             @endforeach
+
+                            @if ($rowButtonsCaption)
+                                <th>{{ $rowButtonsCaption }}</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +40,11 @@
                                 @foreach($columns as $key => $column)
                                     <td>{{ $row[$key] }}</td>
                                 @endforeach
+                                @if ($rowButtonsView)
+                                    <td class="{{ $isOdd ? 'even' : 'odd' }}">
+                                        @include($rowButtonsView, ['row' => $row])
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
