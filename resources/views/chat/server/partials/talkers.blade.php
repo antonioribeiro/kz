@@ -1,7 +1,7 @@
 <!-- begin talkers panel -->
 <div class="panel panel-inverse" data-sortable-id="index-4" id="talkers">
     <div class="panel-heading">
-        <h4 class="panel-title">Sessões de Chat <span class="pull-right label label-success">@{{ __getChatCount() }} sessões</span></h4>
+        <h4 class="panel-title">Sessões de Chat <span class="pull-right label label-success">@{{ __getChatCount('sessão', 'sessões') }}</span></h4>
     </div>
     <div class="panel-body bg-black">
         <div class="media media-sm" v-repeat="chat: chats">

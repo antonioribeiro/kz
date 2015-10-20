@@ -65,9 +65,16 @@
                 return obj;
             },
 
-            __getChatCount: function()
+            __getChatCount: function(one, many)
             {
-                return Object.keys(this.chats).length
+                total = Object.keys(this.chats).length;
+
+                if (one && many)
+                {
+                    return total + ' ' + (total < 2 ? one : many);
+                }
+
+                return total;
             },
 
             __terminateChat: function()

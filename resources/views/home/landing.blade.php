@@ -15,10 +15,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="#home" class="navbar-brand scroll-to-target">
-                        <img src="{{url('/')}}/assets/images/logo-30px.png" class="brand-logo-img" alt="">
-                        <span class="brand-text">
-                            <span class="text-theme">Kall Zenter</span>
-                        </span>
+                        <img src="{{url('/')}}/assets/images/logo-header.png" class="brand-logo-img" alt="">
                     </a>
                 </div>
                 <!-- end navbar-header -->

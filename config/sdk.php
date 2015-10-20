@@ -75,6 +75,7 @@ return [
 		'Services/Passwords',
 //		'Services/Profiles',
 
+		'Services/Revisions',
 		'Services/Registration',
 
 //		'Services/Settings',

@@ -19,26 +19,30 @@
         </div>
 
         <div class="panel-body">
-            <table id="data-table" class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        @foreach($columns as $column)
-                            <th>{{ $column }}</th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($rows as $row)
-                        <?php $isOdd = ! (isset($isOdd) ? $isOdd : false); ?>
-
-                        <tr class="{{ $isOdd ? 'even' : 'odd' }}">
-                            @foreach($columns as $key => $column)
-                                <td>{{ $row[$key] }}</td>
+            @if ($rows)
+                <table id="data-table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            @foreach($columns as $column)
+                                <th>{{ $column }}</th>
                             @endforeach
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach($rows as $row)
+                            <?php $isOdd = ! (isset($isOdd) ? $isOdd : false); ?>
+
+                            <tr class="{{ $isOdd ? 'even' : 'odd' }}">
+                                @foreach($columns as $key => $column)
+                                    <td>{{ $row[$key] }}</td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <h2>Não foram encontrados registros.</h2>
+            @endif
         </div>
     </div>
     <!-- end panel -->

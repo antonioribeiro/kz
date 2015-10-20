@@ -21,6 +21,13 @@
                 <span>Usuários</span>
             </a>
         </li>
+
+        <li class="{{ set_menu_active('chat/scripts') ?: set_menu_active('businesses/users/create') }}">
+            <a href="{!! route('chat.server.scripts.index') !!} ">
+                <i class="fa fa-users"></i>
+                <span>Scripts</span>
+            </a>
+        </li>
     </ul>
     <!-- end top-menu nav -->
 </div>
