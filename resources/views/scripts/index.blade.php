@@ -21,9 +21,10 @@
                     'title' => 'Scritps de Chat',
                     'includeButtons' => 'scripts.partials.table-buttons',
                     'columns' => [
+                        'name' => 'Nome do script',
                         'businessClient' => 'Cliente',
-                        'chatService' => 'Serviço',
-                        'message' => 'Texto',
+                        'service' => 'Serviço',
+                        'script' => 'Script completo',
                     ],
                     'rows' => $scripts,
                 ]

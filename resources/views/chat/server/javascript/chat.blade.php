@@ -111,6 +111,12 @@
 
                 this.messages.push(message);
             }.bind(this));
+
+
+            socket.on('chat-channel:ChatCreated', function(data)
+            {
+                this.__loadChats();
+            }.bind(this));
         }
     });
 </script>
