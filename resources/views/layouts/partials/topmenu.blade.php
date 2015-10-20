@@ -22,9 +22,9 @@
             </a>
         </li>
 
-        <li class="{{ set_menu_active('chat/scripts') ?: set_menu_active('businesses/users/create') }}">
+        <li class="{{ set_menu_active('chat/server/scripts') ?: set_menu_active('businesses/users/create') }}">
             <a href="{!! route('chat.server.scripts.index') !!} ">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-list"></i>
                 <span>Scripts</span>
             </a>
         </li>

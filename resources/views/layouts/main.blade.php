@@ -10,6 +10,8 @@
 
         @include('layouts.partials.topmenu')
 
+        @include('notifications.flash')
+
         @yield('content')
 
         <!-- begin scroll to top btn -->

@@ -10,8 +10,6 @@
         </ol>
         <!-- end breadcrumb -->
 
-        @include('notifications.flash')
-
         <!-- begin page-header -->
         <h1 class="page-header">Usuários <small>registrados no sistema</small></h1>
         <!-- end page-header -->
@@ -20,16 +18,14 @@
         <div class="row">
             @include('components.table',
                 [
-                    'title' => 'Usuários',
-                    'includeButtons' => 'businesses.users.partials.table-buttons',
+                    'title' => 'Scritps de Chat',
+                    'includeButtons' => 'scripts.partials.table-buttons',
                     'columns' => [
-                        'first_name' => 'Nome',
-                        'last_name' => 'Sobrenome',
                         'businessClient' => 'Cliente',
-                        'email' => 'E-mail',
-                        'role' => 'Cargo',
+                        'chatService' => 'Serviço',
+                        'message' => 'Texto',
                     ],
-                    'rows' => $users,
+                    'rows' => $scripts,
                 ]
             )
         </div>
