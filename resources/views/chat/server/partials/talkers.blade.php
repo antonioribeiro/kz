@@ -10,7 +10,7 @@
             </a>
             <div class="media-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <h4 class="media-heading text-white">@{{ chat.talker.fullName }}</h4>
                         <chatservice chat-service="@{{ chat.service }}"></chatservice>
                     </div>
@@ -21,13 +21,17 @@
                         </span>
                     </div>
 
-                    <div class="col-md-4">
-                        <label class="btn btn-sm btn-danger pull-right" v-if="responder">
+                    <div class="col-md-5">
+                        <label class="btn btn-sm btn-danger pull-right" v-if="__chatIsBeingResponded(chat) && ! __beingRespondendByCurrentUser(chat)">
                             ANTONIO CARLOS<br>
                             <strong>em atendimento</strong>
                         </label>
 
-                        <button class="btn btn-sm btn-success pull-right" v-if=" ! responder" v-on="click: __respond(chat)">
+                        <label class="btn btn-sm btn-danger pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== __getCurrentChatId()" v-on="click: __selectChat(chat)">
+                            <strong>SELECIONAR</strong>
+                        </label>
+
+                        <button class="btn btn-sm btn-success pull-right" v-if=" ! __chatIsBeingResponded(chat)" v-on="click: __respond(chat)">
                             <strong>ATENDER</strong>
                         </button>
                     </div>
