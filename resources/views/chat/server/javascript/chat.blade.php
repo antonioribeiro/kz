@@ -89,7 +89,15 @@
 
             __respond: function(chat)
             {
-                this.currentChatId = chat.id;
+                this.$http.get(
+                    '{{ url() }}/api/v1/chat/respond/'+chat.id,
+                    function(data, status, request)
+                    {
+                        this.currentChatId = chat.id;
+
+                        console.log(data);
+                    }
+                );
             },
 
             __getFromCurrentChat: function(props)
