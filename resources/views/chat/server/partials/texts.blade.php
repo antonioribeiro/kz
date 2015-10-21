@@ -10,10 +10,10 @@
         <h4 class="panel-title">Textos</h4>
     </div>
     <div class="panel-body">
-        <div v-repeat="chatScript: scripts"></div>
-            <div class="note note-@{{ chatScript.color }}">
+        <div v-repeat="script: scripts">
+            <div class="note note-@{{ script.color }}">
                 <p>
-                    @{{ script | json }}
+                    @{{ script.script }}
                     <br><br>
                     <button class="btn btn-xs btn-primary pull-right">enviar</button>
                     <br>

@@ -4,6 +4,7 @@
 // Example:
 //
 //     node vendor/pragmarx/sdk/src/Services/Chat/NodeJS/socket.js
+//     node app/Services/Chat/Server/NodeJs/socket.js
 //
 //
 
