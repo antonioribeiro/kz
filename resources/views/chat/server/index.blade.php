@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- begin #content -->
-    <div id="vue-chat" class="content">
+    <div id="vue-server-chat" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="{{ route('home') }}">Home</a></li>

@@ -27,7 +27,7 @@
                                 <th>{{ $column }}</th>
                             @endforeach
 
-                            @if ($rowButtonsCaption)
+                            @if (isset($rowButtonsCaption))
                                 <th>{{ $rowButtonsCaption }}</th>
                             @endif
                         </tr>
@@ -40,7 +40,7 @@
                                 @foreach($columns as $key => $column)
                                     <td>{{ $row[$key] }}</td>
                                 @endforeach
-                                @if ($rowButtonsView)
+                                @if (isset($rowButtonsView))
                                     <td class="{{ $isOdd ? 'even' : 'odd' }}">
                                         @include($rowButtonsView, ['row' => $row])
                                     </td>
@@ -104,5 +104,9 @@
                 }
             }
         }();
+
+        $(document).ready(function() {
+            TableManageButtons.init();
+        });
     </script>
 @stop

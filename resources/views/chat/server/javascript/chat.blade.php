@@ -3,15 +3,19 @@
 <script>
     var socket = io('{{ url() . ':' . env('CHAT_PORT', '23172') }}');
 
+    Vue.config.debug = true;
+
     new Vue(
     {
-        el: '#vue-chat',
+        el: '#vue-server-chat',
 
         data: {
             chats: [],
+            scripts: [],
             chatCount: 0,
             currentChatId: false,
             socketConnected: false,
+            colors: ['info', 'success', 'danger'],
         },
 
         methods:
@@ -24,18 +28,45 @@
 
                 var chatId = event.targetVM.$data.chatId;
 
-                this.$http.get('{{ url() }}/chat/client/send/'+chatId+'/'+user+'/'+message);
+                this.$http.get('{{ url() }}/api/v1/chat/client/send/'+chatId+'/'+user+'/'+message);
             },
 
             __loadChats: function()
             {
                 this.$http.get(
-                    '{{ url() }}/chat/server/all',
+                    '{{ url() }}/api/v1/chat/all',
                     function(data, status, request)
                     {
                         this.chats = data;
                     }
                 );
+            },
+
+            __loadScripts: function()
+            {
+                this.$http.get(
+                    '{{ url() }}/api/v1/chat/scripts',
+                    function(data, status, request)
+                    {
+                        this.scripts = data;
+
+                        this.__processScripts();
+                    }
+                );
+            },
+
+            __processScripts: function()
+            {
+                var index = 0;
+
+                for (var script in Object.keys(this.scripts))
+                {
+                    this.scripts[script].color = this.colors[index];
+
+                    index = index < this.colors.length-1 ? index+1 : 0;
+                }
+
+                console.log(this.scripts);
             },
 
             __respond: function(chat)
@@ -87,6 +118,8 @@
         {
             this.__loadChats();
 
+            this.__loadScripts();
+
             socket.on('connect', function(data)
             {
                 this.socketConnected = true;
@@ -111,7 +144,6 @@
 
                 this.messages.push(message);
             }.bind(this));
-
 
             socket.on('chat-channel:ChatCreated', function(data)
             {

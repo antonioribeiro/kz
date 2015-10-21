@@ -93,7 +93,6 @@
         $(document).ready(function() {
             App.init();
             DashboardV2.init();
-            TableManageButtons.init();
         });
     </script>
 

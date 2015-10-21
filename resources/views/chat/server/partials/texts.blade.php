@@ -10,37 +10,15 @@
         <h4 class="panel-title">Textos</h4>
     </div>
     <div class="panel-body">
-        <div class="note note-info">
-            <p>
-                Olá, você está no Alô Alerj, meu nome é [operador], como posso ajudar?
-                <br><br>
-                <button class="btn btn-xs btn-primary pull-right">enviar</button>
-                <br>
-            </p>
-        </div>
-        <div class="note note-success">
-            <p>
-                Precisamos de alguns dados seus: Nome completo, CPF, endereço, cep, telefone.
-                <br><br>
-                <button class="btn btn-xs btn-primary pull-right">enviar</button>
-                <br>
-            </p>
-        </div>
-        <div class="note note-danger">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad architecto consequatur eius fugiat ipsum odio officiis perferendis reiciendis temporibus.
-                <br><br>
-                <button class="btn btn-xs btn-primary pull-right">enviar</button>
-                <br>
-            </p>
-        </div>
-        <div class="note note-info">
-            <p>
-                Incidunt itaque laboriosam nisi, nulla placeat, possimus quae reprehenderit repudiandae tenetur voluptatum.
-                <br><br>
-                <button class="btn btn-xs btn-primary pull-right">enviar</button>
-                <br>
-            </p>
+        <div v-repeat="chatScript: scripts"></div>
+            <div class="note note-@{{ chatScript.color }}">
+                <p>
+                    @{{ script | json }}
+                    <br><br>
+                    <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                    <br>
+                </p>
+            </div>
         </div>
     </div>
 </div>
