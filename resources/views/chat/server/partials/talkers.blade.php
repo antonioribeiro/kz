@@ -10,18 +10,16 @@
             </a>
             <div class="media-body">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <h4 class="media-heading text-white">@{{ chat.talker.fullName }}</h4>
                         <chatservice chat-service="@{{ chat.service }}"></chatservice>
-                    </div>
-
-                    <div class="col-md-2">
+                        &nbsp;
                         <span class="label label-warning animated flash infinite" v-if="chat.hasNewMessages">
                             <i class="fa fa-star-o"></i> Nova mensagem
                         </span>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <label class="btn btn-sm btn-danger pull-right" v-if="__chatIsBeingResponded(chat) && ! __beingRespondendByCurrentUser(chat)">
                             <strong>@{{ chat.responder.fullName }}</strong><br>
                             em atendimento
