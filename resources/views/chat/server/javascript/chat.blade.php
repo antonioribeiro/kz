@@ -188,6 +188,11 @@
             {
                 this.__loadChats();
             }.bind(this));
+
+            socket.on('chat-channel:ChatResponded', function(data)
+            {
+                this.__loadChats();
+            }.bind(this));
         }
     });
 </script>

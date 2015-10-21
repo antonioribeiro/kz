@@ -23,11 +23,11 @@
 
                     <div class="col-md-5">
                         <label class="btn btn-sm btn-danger pull-right" v-if="__chatIsBeingResponded(chat) && ! __beingRespondendByCurrentUser(chat)">
-                            ANTONIO CARLOS<br>
-                            <strong>em atendimento</strong>
+                            <strong>@{{ chat.responder.fullName }}</strong><br>
+                            em atendimento
                         </label>
 
-                        <label class="btn btn-sm btn-danger pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== __getCurrentChatId()" v-on="click: __selectChat(chat)">
+                        <label class="btn btn-sm btn-warning pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== __getCurrentChatId()" v-on="click: __selectChat(chat)">
                             <strong>SELECIONAR</strong>
                         </label>
 
