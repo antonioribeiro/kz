@@ -3,6 +3,7 @@
 @section('content')
     <!-- begin #content -->
     <div id="vue-server-chat" class="content">
+        @{{ currentChatId }}
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="{{ route('home') }}">Home</a></li>
@@ -27,19 +28,20 @@
             </div>
             <!-- /talkers -->
             <!-- no-chat -->
-            <div class="col-sm-6 col-md-8 animated bounceInDown" v-if=" ! currentChat">
+            <div class="col-sm-6 col-md-8 animated bounceInDown" v-if=" ! currentChatId">
                 @include('chat.server.partials.no-chat')
             </div>
             <!-- /no-chat -->
 
             <!-- chat -->
-            <div class="col-sm-6 col-md-6 animated bounceInDown" v-if="currentChat">
+            <div class="col-sm-6 col-md-6 animated bounceInDown" v-if="currentChatId">
                 @include('chat.server.partials.chat')
             </div>
             <!-- /chat -->
 
             <!-- texts -->
-            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChat">                @include('chat.server.partials.texts')
+            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">
+                @include('chat.server.partials.texts')
             </div>
             <!-- /texts -->
         </div>

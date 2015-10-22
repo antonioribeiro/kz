@@ -5,7 +5,7 @@
     <div class="panel-body bg-silver">
         <div data-scrollbar="true" data-height="425px">
             <ul class="chats">
-                <li class="@{{ __chatLeftRight(message) }}" v-repeat="message: currentChat.messages">
+                <li class="@{{ __chatLeftRight(message) }}" v-repeat="message: __getCurrentChat().messages">
                     <span class="date-time">yesterday 11:23pm</span>
                     <a href="javascript:;" class="name">@{{ message.talker.fullName }}</a>
                     <a href="javascript:;" class="image"><img alt="" src="@{{ message.talker.avatar }}" /></a>

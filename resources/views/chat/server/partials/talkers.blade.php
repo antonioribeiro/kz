@@ -25,7 +25,7 @@
                             em atendimento
                         </label>
 
-                        <label class="btn btn-sm btn-warning pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== __getCurrentChatId()" v-on="click: __selectChat(chat)">
+                        <label class="btn btn-sm btn-warning pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== currentChatId" v-on="click: __selectChat(chat)">
                             <strong>SELECIONAR</strong>
                         </label>
 

@@ -13,11 +13,12 @@
             chats: [],
             scripts: [],
             chatCount: 0,
-            currentChat: null,
+            currentChatId: null,
             currentOperatorId: '{{ $currentOperatorId }}',
             socketConnected: false,
             chatLeftRight: 'left',
             colors: ['info', 'success', 'danger'],
+            talkers: [],
         },
 
         methods:
@@ -39,7 +40,7 @@
                     '{{ url() }}/api/v1/chat/all',
                     function(data, status, request)
                     {
-                        this.chats = data;
+                        this.$set('chats', data);
 
                         console.log('this.chats');
                         console.log(data);
@@ -83,7 +84,7 @@
                     {
                         if (data.success)
                         {
-                            this.currentChat = data.chat;
+                            this.currentChatId = data.chat.id;
                         }
                     }
                 );
@@ -91,12 +92,12 @@
 
             __getFromCurrentChat: function(props)
             {
-                if ( ! this.currentChat)
+                if ( ! this.currentChatId)
                 {
                     return null;
                 }
 
-                return this.__getProperty(this.chats[this.currentChat.id], props);
+                return this.__getProperty(this.chats[this.currentChatId], props);
             },
 
             __getProperty: function(obj, props)
@@ -125,7 +126,7 @@
 
             __terminateChat: function()
             {
-                this.currentChat = null;
+                this.currentChatId = null;
             },
 
             __beingRespondendByCurrentUser: function(chat)
@@ -138,31 +139,41 @@
                 return chat.responder_id !== null;
             },
 
-            __getCurrentChatId: function()
-            {
-                if (this.currentChat)
-                {
-                    return this.currentChat.id;
-                }
-
-                return null;
-            },
-
             __selectChat: function(chat)
             {
-                this.currentChat = chat;
+                this.currentChatId = chat.id;
+
+                this.__listenOnCurrentChatSocket();
             },
 
             __chatLeftRight: function(message)
             {
-                if (typeof message.leftRight == 'undefined')
+                if (typeof this.talkers[message.talker.id] == 'undefined' || typeof this.talkers[message.talker.id].leftRight == 'undefined')
                 {
-                    message.leftRight = this.chatLeftRight;
+                    this.talkers[message.talker.id] = {leftRight: this.chatLeftRight};
 
                     this.chatLeftRight = this.chatLeftRight == 'left' ? 'right' : 'left';
                 }
 
-                return message.leftRight;
+                return this.talkers[message.talker.id].leftRight;
+            },
+
+            __getCurrentChat: function()
+            {
+                if ( ! this.currentChatId)
+                {
+                    return null;
+                }
+
+                return this.chats[this.currentChatId];
+            },
+
+            __listenOnCurrentChatSocket: function()
+            {
+                socket.on('chat-channel:'+this.currentChatId, function(data)
+                {
+                    this.__loadChats();
+                }.bind(this));
             }
         },
 
@@ -180,21 +191,6 @@
             socket.on('disconnect', function(data)
             {
                 this.socketConnected = false;
-            }.bind(this));
-
-            socket.on('{{ $listenChannel }}', function(data)
-            {
-                {{--var isOperator = data.username == '{{ $operatorUsername }}';--}}
-
-                var message = {
-                    "isOperator": isOperator,
-                    "username": data.username,
-//                    "message": data.message,
-//                    "pull": isOperator ? 'left' : 'right',
-                    {{--"photo": isOperator ? '{!! $operatorAvatar !!}' : '{!! $talkerAvatar !!}',--}}
-                };
-
-                this.messages.push(message);
             }.bind(this));
 
             socket.on('chat-channel:ChatCreated', function(data)
