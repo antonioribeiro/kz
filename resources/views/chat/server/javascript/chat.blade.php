@@ -20,6 +20,7 @@
             colors: ['info', 'success', 'danger'],
             talkers: [],
             textInput: '',
+            scriptCount: 0,
         },
 
         methods:
@@ -71,15 +72,17 @@
             {
                 var index = 0;
 
-                for (var script in Object.keys(this.scripts))
+                for (var scriptId in this.scripts)
                 {
-                    this.scripts[script].color = this.colors[index];
+                    this.scripts[scriptId].color = this.colors[index];
 
                     index = index < this.colors.length-1 ? index+1 : 0;
-                }
 
-                console.log('this.scripts');
-                console.log(this.scripts);
+                    this.scripts[scriptId].order = this.__getNextScriptCount();
+
+                    console.log('script order');
+                    console.log(this.scripts[scriptId].order);
+                }
             },
 
             __respond: function(chat)
@@ -198,9 +201,13 @@
                 }.bind(this));
             },
 
-            __sendScript: function(script)
+            __sendScript: function(scriptId)
             {
-                this.__sendMessage(script.script);
+                this.textInput = this.scripts[scriptId].script;
+
+                this.__moveScriptToEnd(scriptId);
+
+                this.__sendMessage();
             },
 
             __humanDate: function(date)
@@ -209,6 +216,23 @@
 
                 return  padzero(human.getDay(),2) + '/' + padzero(human.getMonth(),2) + ' às ' +
                         padzero(human.getHours(),2) + ':' + padzero(human.getMinutes(),2);
+            },
+
+            __getNextScriptCount: function()
+            {
+                var count = this.scriptCount;
+
+                this.scriptCount++;
+
+                return count;
+            },
+
+            __moveScriptToEnd: function(scriptId)
+            {
+                this.scripts[scriptId].order = this.__getNextScriptCount();
+
+                console.log(this.scripts[scriptId].script);
+                console.log(this.scripts[scriptId].order);
             },
         },
 

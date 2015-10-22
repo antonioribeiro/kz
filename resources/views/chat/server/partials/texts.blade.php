@@ -10,12 +10,12 @@
         <h4 class="panel-title">Scripts</h4>
     </div>
     <div class="panel-body">
-        <div v-repeat="script: scripts">
+        <div v-repeat="script: scripts | orderBy 'order' reverse">
             <div class="note note-@{{ script.color }}">
                 <p>
                     @{{ script.script }}
                     <br><br>
-                    <button class="btn btn-xs btn-primary pull-right" v-on="click: __sendScript(script)">enviar</button>
+                    <button class="btn btn-xs btn-primary pull-right" v-on="click: __sendScript(script.id)">enviar</button>
                     <br>
                 </p>
             </div>
