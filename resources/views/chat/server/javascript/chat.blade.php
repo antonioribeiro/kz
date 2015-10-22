@@ -16,6 +16,7 @@
             currentChat: null,
             currentOperatorId: '{{ $currentOperatorId }}',
             socketConnected: false,
+            chatLeftRight: 'left',
             colors: ['info', 'success', 'danger'],
         },
 
@@ -150,6 +151,18 @@
             __selectChat: function(chat)
             {
                 this.currentChat = chat;
+            },
+
+            __chatLeftRight: function(message)
+            {
+                if (typeof message.leftRight == 'undefined')
+                {
+                    message.leftRight = this.chatLeftRight;
+
+                    this.chatLeftRight = this.chatLeftRight == 'left' ? 'right' : 'left';
+                }
+
+                return message.leftRight;
             }
         },
 
