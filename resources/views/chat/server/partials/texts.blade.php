@@ -10,7 +10,7 @@
         <h4 class="panel-title">Scripts</h4>
     </div>
     <div class="panel-body">
-        <div v-repeat="script: scripts | orderBy 'order' reverse">
+        <div v-repeat="script: scripts | orderBy 'order'">
             <div class="note note-@{{ script.color }}">
                 <p>
                     @{{ script.script }}

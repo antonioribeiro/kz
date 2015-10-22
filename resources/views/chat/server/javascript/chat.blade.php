@@ -236,6 +236,7 @@
             },
         },
 
+
         ready: function()
         {
             this.__loadChats();
