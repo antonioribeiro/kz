@@ -14,7 +14,7 @@
                         <h4 class="media-heading text-white">@{{ chat.talker.fullName }}</h4>
                         <chatservice chat-service="@{{ chat.service }}"></chatservice>
                         &nbsp;
-                        <span class="label label-warning animated flash infinite" v-if="chat.hasNewMessages">
+                        <span class="label label-warning animated flash infinite" v-if="__hasNewMessages(chat)">
                             <i class="fa fa-star-o"></i> Nova mensagem
                         </span>
                     </div>

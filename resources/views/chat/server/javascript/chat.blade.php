@@ -5,12 +5,14 @@
 
     Vue.config.debug = true;
 
-    new Vue(
+    var vueServerChat = new Vue(
     {
         el: '#vue-server-chat',
 
         data: {
             chats: [],
+            chatLastReadSerials: [],
+            lastMessageSerials: [],
             scripts: [],
             chatCount: 0,
             currentChatId: null,
@@ -48,6 +50,7 @@
                         this.$set('chats', data);
 
                         this.__listenOnAllChatSockets();
+                        this.__findLastMessage();
 
                         console.log('this.chats');
                         console.log(data);
@@ -79,9 +82,6 @@
                     index = index < this.colors.length-1 ? index+1 : 0;
 
                     this.scripts[scriptId].order = this.__getNextScriptCount();
-
-                    console.log('script order');
-                    console.log(this.scripts[scriptId].order);
                 }
             },
 
@@ -230,12 +230,42 @@
             __moveScriptToEnd: function(scriptId)
             {
                 this.scripts[scriptId].order = this.__getNextScriptCount();
-
-                console.log(this.scripts[scriptId].script);
-                console.log(this.scripts[scriptId].order);
             },
-        },
 
+            __markMessageAsRead: function(chat, messageId)
+            {
+                if (typeof this.chatLastReadSerials[messageId] == 'undefined' || this.chatLastReadSerials[messageId] < chat.messages[messageId].serial)
+                {
+                    this.chatLastReadSerials[messageId] = chat.messages[messageId].serial;
+                }
+            },
+
+            __findLastMessage: function()
+            {
+                for (var chat in this.chats)
+                {
+                    for (var message in this.chats[chat].messages)
+                    {
+                        var serial = this.chats[chat].messages[message].serial;
+
+                        if (typeof this.lastMessageSerials[chat.id] == 'undefined' || serial > this.lastMessageSerials[chat.id])
+                        {
+                            this.lastMessageSerials[chat.id] = serial;
+                        }
+                    }
+                }
+            },
+
+            __hasNewMessages: function(chat)
+            {
+                console.log('chat---------');
+                console.log(chat.id);
+                console.log(this.chatLastReadSerials[chat.id]);
+                console.log(this.lastMessageSerials[chat.id]);
+
+                return this.chatLastReadSerials[chat.id] < this.lastMessageSerials[chat.id];
+            }
+        },
 
         ready: function()
         {
