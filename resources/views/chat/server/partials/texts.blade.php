@@ -15,7 +15,7 @@
                 <p>
                     @{{ script.script }}
                     <br><br>
-                    <button class="btn btn-xs btn-primary pull-right">enviar</button>
+                    <button class="btn btn-xs btn-primary pull-right" v-on="click: __sendScript(script)">enviar</button>
                     <br>
                 </p>
             </div>

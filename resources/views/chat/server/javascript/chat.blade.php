@@ -19,19 +19,23 @@
             chatLeftRight: 'left',
             colors: ['info', 'success', 'danger'],
             talkers: [],
+            textInput: '',
         },
 
         methods:
         {
-            __sendMessage: function(event)
+            __sendMessage: function()
             {
-                var user = event.targetVM.$data.currentUsername;
+                this.$http.post(
+                    '{{ url() }}/api/v1/chat/server/send',
+                    {
+                        _token: '{{ csrf_token() }}',
+                        chatId: this.currentChatId,
+                        message: this.textInput,
+                    }
+                );
 
-                var message = event.targetVM.$data.currentMessage;
-
-                var chatId = event.targetVM.$data.chatId;
-
-                this.$http.get('{{ url() }}/api/v1/chat/client/send/'+chatId+'/'+user+'/'+message);
+                this.textInput = '';
             },
 
             __loadChats: function()
@@ -41,6 +45,8 @@
                     function(data, status, request)
                     {
                         this.$set('chats', data);
+
+                        this.__listenOnAllChatSockets();
 
                         console.log('this.chats');
                         console.log(data);
@@ -170,11 +176,40 @@
 
             __listenOnCurrentChatSocket: function()
             {
-                socket.on('chat-channel:'+this.currentChatId, function(data)
+                this.__listenOnChatSocket(this.currentChatId);
+            },
+
+            __listenOnAllChatSockets: function()
+            {
+                for (var chat in this.chats)
+                {
+                    if (chat.responder_id == this.currentOperatorId)
+                    {
+                        this.__listenOnChatSocket(chat.id);
+                    }
+                }
+            },
+
+            __listenOnChatSocket: function(chatId)
+            {
+                socket.on('chat-channel:'+chatId, function()
                 {
                     this.__loadChats();
                 }.bind(this));
-            }
+            },
+
+            __sendScript: function(script)
+            {
+                this.__sendMessage(script.script);
+            },
+
+            __humanDate: function(date)
+            {
+                var human = new Date(date);
+
+                return  padzero(human.getDay(),2) + '/' + padzero(human.getMonth(),2) + ' às ' +
+                        padzero(human.getHours(),2) + ':' + padzero(human.getMinutes(),2);
+            },
         },
 
         ready: function()
@@ -204,4 +239,11 @@
             }.bind(this));
         }
     });
+
+    function padzero(num, size) {
+        var s = num+"";
+        while (s.length < size) s = "0" + s;
+        return s;
+    }
+
 </script>

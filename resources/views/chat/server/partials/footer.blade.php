@@ -2,10 +2,10 @@
     <div class="panel-footer">
         <form name="send_message_form" data-id="message-form">
             <div class="input-group">
-                <input type="text" class="form-control input-sm" name="message" placeholder="Digite sua mensagem aqui">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary btn-sm" type="button">Enviar</button>
-                    </span>
+                <input type="text" v-model="textInput" class="form-control input-sm" name="message" placeholder="Digite sua mensagem aqui">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-sm" type="button" v-on="click: __sendMessage">Enviar</button>
+                </span>
             </div>
         </form>
     </div>

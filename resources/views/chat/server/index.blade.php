@@ -3,17 +3,6 @@
 @section('content')
     <!-- begin #content -->
     <div id="vue-server-chat" class="content">
-        @{{ currentChatId }}
-        <!-- begin breadcrumb -->
-        <ol class="breadcrumb pull-right">
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li class="active">Chat</li>
-        </ol>
-        <!-- end breadcrumb -->
-        <!-- begin page-header -->
-        <h1 class="page-header">Chat</h1>
-        <!-- end page-header -->
-
         <!-- begin row -->
         <div class="row" v-if=" ! __getChatCount()">
             @include('chat.server.partials.no-one')
@@ -40,8 +29,7 @@
             <!-- /chat -->
 
             <!-- texts -->
-            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">
-                @include('chat.server.partials.texts')
+            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">                @include('chat.server.partials.texts')
             </div>
             <!-- /texts -->
         </div>
