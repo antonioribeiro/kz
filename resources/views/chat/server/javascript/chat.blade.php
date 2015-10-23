@@ -25,6 +25,14 @@
             scriptCount: 0,
         },
 
+        computed: {
+            computedChats: function()
+            {
+                console.log('COMPUTED');
+                return this.chats;
+            }
+        },
+
         methods:
         {
             __sendMessage: function()
@@ -50,10 +58,7 @@
                         this.$set('chats', data);
 
                         this.__listenOnAllChatSockets();
-                        this.__findLastMessage();
-
-                        console.log('this.chats');
-                        console.log(data);
+                        this.__checkUnreadChats();
                     }
                 );
             },
@@ -93,7 +98,7 @@
                     {
                         if (data.success)
                         {
-                            this.currentChatId = data.chat.id;
+                            this.__setCurrentChatId(data.chat.id);
                         }
                     }
                 );
@@ -150,7 +155,7 @@
 
             __selectChat: function(chat)
             {
-                this.currentChatId = chat.id;
+                this.__setCurrentChatId(chat.id);
 
                 this.__listenOnCurrentChatSocket();
             },
@@ -232,39 +237,61 @@
                 this.scripts[scriptId].order = this.__getNextScriptCount();
             },
 
-            __markMessageAsRead: function(chat, messageId)
+            __markChatAsRead: function(chatId)
             {
-                if (typeof this.chatLastReadSerials[messageId] == 'undefined' || this.chatLastReadSerials[messageId] < chat.messages[messageId].serial)
-                {
-                    this.chatLastReadSerials[messageId] = chat.messages[messageId].serial;
-                }
+                this.chatLastReadSerials[chatId] = this.__findLastSerialForChat(chatId);
+
+                this.__checkUnreadChats();
             },
 
-            __findLastMessage: function()
+            __findLastSerialForChat: function(chatId)
             {
-                for (var chat in this.chats)
-                {
-                    for (var message in this.chats[chat].messages)
-                    {
-                        var serial = this.chats[chat].messages[message].serial;
+                var serial = 0;
 
-                        if (typeof this.lastMessageSerials[chat.id] == 'undefined' || serial > this.lastMessageSerials[chat.id])
-                        {
-                            this.lastMessageSerials[chat.id] = serial;
-                        }
+                if (typeof chatId == 'undefined')
+                {
+                    return 0;
+                }
+
+                for (var messageId in this.chats[chatId].messages)
+                {
+                    if (this.chats[chatId].messages[messageId].serial > serial)
+                    {
+                        serial = this.chats[chatId].messages[messageId].serial;
                     }
                 }
+
+                return serial;
             },
 
-            __hasNewMessages: function(chat)
+            __getLastReadSerialForChat: function(chatId)
             {
-                console.log('chat---------');
-                console.log(chat.id);
-                console.log(this.chatLastReadSerials[chat.id]);
-                console.log(this.lastMessageSerials[chat.id]);
+                if (typeof this.chatLastReadSerials[chatId] == 'undefined')
+                {
+                    return 0;
+                }
 
-                return this.chatLastReadSerials[chat.id] < this.lastMessageSerials[chat.id];
-            }
+                return this.chatLastReadSerials[chatId];
+            },
+
+            __checkUnreadChats: function()
+            {
+                for (var chatId in this.chats)
+                {
+                    console.log('__checkUnreadChats');
+                    console.log(this.__getLastReadSerialForChat(chatId));
+                    console.log(this.__findLastSerialForChat(chatId));
+                    console.log('------------- results for __checkUnreadChats --- ' + chatId);
+                    this.chats[chatId].unread = this.__getLastReadSerialForChat(chatId) < this.__findLastSerialForChat(chatId);
+                }
+            },
+
+            __setCurrentChatId: function(id)
+            {
+                this.currentChatId = id;
+
+                this.__markChatAsRead(this.currentChatId);
+            },
         },
 
         ready: function()

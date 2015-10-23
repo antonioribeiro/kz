@@ -4,7 +4,7 @@
         <h4 class="panel-title">Sessões de Chat <span class="pull-right label label-success">@{{ __getChatCount('sessão', 'sessões') }}</span></h4>
     </div>
     <div class="panel-body bg-black">
-        <div class="media media-sm" v-repeat="chat: chats">
+        <div class="media media-sm" v-repeat="chat: computedChats">
             <a class="media-left" href="javascript:;">
                 <img src="@{{ chat.talker.avatar }}" alt="" class="media-object">
             </a>
@@ -14,7 +14,7 @@
                         <h4 class="media-heading text-white">@{{ chat.talker.fullName }}</h4>
                         <chatservice chat-service="@{{ chat.service }}"></chatservice>
                         &nbsp;
-                        <span class="label label-warning animated flash infinite" v-if="__hasNewMessages(chat)">
+                        <span class="label label-warning animated flash infinite" v-if="chat.unread">
                             <i class="fa fa-star-o"></i> Nova mensagem
                         </span>
                     </div>
