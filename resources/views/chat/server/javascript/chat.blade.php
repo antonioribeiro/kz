@@ -1,6 +1,7 @@
 @include('chat.server.javascript.components')
 
 <script>
+
     var socket = io('{{ url() . ':' . env('CHAT_PORT', '23172') }}');
 
     Vue.config.debug = true;
@@ -180,18 +181,48 @@
 
             __listenOnAllChatSockets: function()
             {
-                for (var chat in this.chats)
+                for (var chatId in this.chats)
                 {
-                    if (chat.responder_id == this.currentOperatorId)
+                    if (this.chats[chatId].responder_id == this.currentOperatorId)
                     {
-                        this.__listenOnChatSocket(chat.id);
+                        this.__listenOnChatSocket(chatId);
                     }
                 }
+
+                this.__listenOnFixedChatSockets();
+            },
+
+            __listenOnFixedChatSockets: function()
+            {
+                this.__socketOn('connect', function(data)
+                {
+                    this.socketConnected = true;
+                }.bind(this));
+
+                this.__socketOn('disconnect', function(data)
+                {
+                    this.socketConnected = false;
+                }.bind(this));
+
+                this.__socketOn('chat-channel:ChatCreated', function(data)
+                {
+                    this.__loadChats();
+                }.bind(this));
+
+                this.__socketOn('chat-channel:ChatResponded', function(data)
+                {
+                    this.__loadChats();
+                }.bind(this));
+
+                this.__socketOn('chat-channel:ChatRead', function(data)
+                {
+                    this.__loadChats();
+                }.bind(this));
             },
 
             __listenOnChatSocket: function(chatId)
             {
-                socket.on('chat-channel:'+chatId, function()
+                this.__socketOn('chat-channel:'+chatId, function()
                 {
                     this.__loadChats();
                 }.bind(this));
@@ -258,22 +289,22 @@
             {
                 if ( ! this.currentChatId)
                 {
-                    console.log('theres no current');
                     return;
                 }
 
                 var lastRead = this.chats[this.currentChatId].last_read_message_serial;
-                console.log('lastRead');
-                console.log(lastRead);
 
                 var lastMessage = this.chats[this.currentChatId].last_message_serial;
-                console.log('lastMessage');
-                console.log(lastMessage);
 
                 if (lastRead < lastMessage)
                 {
                     this.__markChatAsRead(this.currentChatId);
                 }
+            },
+
+            __socketOn: function(channel, callable)
+            {
+                return socket.on(channel, callable);
             }
         },
 
@@ -283,30 +314,7 @@
 
             this.__loadScripts();
 
-            socket.on('connect', function(data)
-            {
-                this.socketConnected = true;
-            }.bind(this));
-
-            socket.on('disconnect', function(data)
-            {
-                this.socketConnected = false;
-            }.bind(this));
-
-            socket.on('chat-channel:ChatCreated', function(data)
-            {
-                this.__loadChats();
-            }.bind(this));
-
-            socket.on('chat-channel:ChatResponded', function(data)
-            {
-                this.__loadChats();
-            }.bind(this));
-
-            socket.on('chat-channel:ChatRead', function(data)
-            {
-                this.__loadChats();
-            }.bind(this));
+            this.__listenOnAllChatSockets();
         }
     });
 
