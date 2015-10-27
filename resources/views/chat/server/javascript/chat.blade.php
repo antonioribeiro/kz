@@ -230,7 +230,12 @@
 
             __markChatAsRead: function(chatId)
             {
-                var lastRead = this.__findLastSerialForChat(chatId);
+                if (this.chats[chatId].last_message_serial <= this.chats[chatId].last_read_message_serial)
+                {
+                    return;
+                }
+
+                var lastRead = this.chats[chatId].last_message_serial;
 
                 this.$http.post(
                     '{{ url() }}/api/v1/chat/server/read',
@@ -240,26 +245,6 @@
                         serial: lastRead,
                     }
                 );
-            },
-
-            __findLastSerialForChat: function(chatId)
-            {
-                var serial = 0;
-
-                if (typeof chatId == 'undefined')
-                {
-                    return 0;
-                }
-
-                for (var messageId in this.chats[chatId].messages)
-                {
-                    if (this.chats[chatId].messages[messageId].serial > serial)
-                    {
-                        serial = this.chats[chatId].messages[messageId].serial;
-                    }
-                }
-
-                return serial;
             },
 
             __setCurrentChatId: function(id)
