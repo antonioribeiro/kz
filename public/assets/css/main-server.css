@@ -25,3 +25,12 @@
 .chats .message {
     font-size: 18px;
 }
+
+li.chat-line {
+    transition: opacity 0.9s ease;
+    opacity: 1;
+}
+
+li.v-enter, li.v-leave {
+    opacity: 0;
+}

@@ -13,7 +13,9 @@
         data: {
             chats: {},
             scripts: [],
+            listeningSockets: [],
             chatCount: 0,
+            lastThirdPartyMessage: 0,
             currentChatId: null,
             currentOperatorId: '{{ $currentOperatorId }}',
             socketConnected: false,
@@ -51,6 +53,8 @@
                         this.__listenOnAllChatSockets();
 
                         this.__checkCurrentChatNewMessages();
+
+                        this.__checkLastThirdPartyMessage();
                     }
                 );
             },
@@ -304,7 +308,43 @@
 
             __socketOn: function(channel, callable)
             {
-                return socket.on(channel, callable);
+                if (this.listeningSockets.indexOf(channel) == -1)
+                {
+                    this.listeningSockets.push(channel);
+
+                    return socket.on(channel, callable);
+                }
+            },
+
+            __playNewMessageSound: function()
+            {
+                var audio = new Audio('{{ url() }}/assets/sound/newmessage.mp3');
+                audio.play();
+            },
+
+            __checkLastThirdPartyMessage: function()
+            {
+                var last = '0';
+
+                for (var chatId in this.chats)
+                {
+                    for (var messageId in this.chats[chatId].messages)
+                    {
+                        if (this.chats[chatId].messages[messageId].talker.id !== this.currentOperatorId)
+                        {
+                            last = last < this.chats[chatId].messages[messageId].serial
+                                    ? this.chats[chatId].messages[messageId].serial
+                                    : last;
+                        }
+                    }
+                }
+
+                if (last > this.lastThirdPartyMessage)
+                {
+                    this.__playNewMessageSound();
+
+                    this.$set('lastThirdPartyMessage', last);
+                }
             }
         },
 
@@ -317,23 +357,6 @@
             this.__listenOnAllChatSockets();
         }
     });
-
-    Vue.directive('end-chat-selector', {
-        bind: function () {
-            var vm = this.vm;
-            var el = $(this.el);
-            el.on('hidden.bs.modal', function() {
-                vm.data.currentTask = 'whatever value you want here';
-            });
-        },
-        update: function (newValue, oldValue) {
-            // i don't think you have anything here
-        },
-        unbind: function () {
-            // not sure that you have anything here
-            // maybe unbind the modal if bootstrap has that
-        }
-    })
 
     function padzero(num, size) {
         var s = num+"";
