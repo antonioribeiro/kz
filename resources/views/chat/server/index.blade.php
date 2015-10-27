@@ -4,6 +4,7 @@
     <!-- begin #content -->
     <div id="vue-server-chat" class="content">
         <!-- begin row -->
+
         <div class="row" v-if=" ! __getChatCount()">
             @include('chat.server.partials.no-one')
         </div>

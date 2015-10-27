@@ -10,9 +10,7 @@
         el: '#vue-server-chat',
 
         data: {
-            chats: [],
-            chatLastReadSerials: [],
-            lastMessageSerials: [],
+            chats: {},
             scripts: [],
             chatCount: 0,
             currentChatId: null,
@@ -23,14 +21,6 @@
             talkers: [],
             textInput: '',
             scriptCount: 0,
-        },
-
-        computed: {
-            computedChats: function()
-            {
-                console.log('COMPUTED');
-                return this.chats;
-            }
         },
 
         methods:
@@ -52,13 +42,14 @@
             __loadChats: function()
             {
                 this.$http.get(
-                    '{{ url() }}/api/v1/chat/all',
+                    '{{ url() }}/api/v1/chat/server/all',
                     function(data, status, request)
                     {
                         this.$set('chats', data);
 
                         this.__listenOnAllChatSockets();
-                        this.__checkUnreadChats();
+
+                        this.__checkCurrentChatNewMessages();
                     }
                 );
             },
@@ -66,7 +57,7 @@
             __loadScripts: function()
             {
                 this.$http.get(
-                    '{{ url() }}/api/v1/chat/scripts',
+                    '{{ url() }}/api/v1/chat/server/scripts',
                     function(data, status, request)
                     {
                         this.scripts = data;
@@ -93,7 +84,7 @@
             __respond: function(chat)
             {
                 this.$http.get(
-                    '{{ url() }}/api/v1/chat/respond/'+chat.id,
+                    '{{ url() }}/api/v1/chat/server/respond/'+chat.id,
                     function(data, status, request)
                     {
                         if (data.success)
@@ -239,9 +230,16 @@
 
             __markChatAsRead: function(chatId)
             {
-                this.chatLastReadSerials[chatId] = this.__findLastSerialForChat(chatId);
+                var lastRead = this.__findLastSerialForChat(chatId);
 
-                this.__checkUnreadChats();
+                this.$http.post(
+                    '{{ url() }}/api/v1/chat/server/read',
+                    {
+                        _token: '{{ csrf_token() }}',
+                        chatId: chatId,
+                        serial: lastRead,
+                    }
+                );
             },
 
             __findLastSerialForChat: function(chatId)
@@ -264,34 +262,34 @@
                 return serial;
             },
 
-            __getLastReadSerialForChat: function(chatId)
-            {
-                if (typeof this.chatLastReadSerials[chatId] == 'undefined')
-                {
-                    return 0;
-                }
-
-                return this.chatLastReadSerials[chatId];
-            },
-
-            __checkUnreadChats: function()
-            {
-                for (var chatId in this.chats)
-                {
-                    console.log('__checkUnreadChats');
-                    console.log(this.__getLastReadSerialForChat(chatId));
-                    console.log(this.__findLastSerialForChat(chatId));
-                    console.log('------------- results for __checkUnreadChats --- ' + chatId);
-                    this.chats[chatId].unread = this.__getLastReadSerialForChat(chatId) < this.__findLastSerialForChat(chatId);
-                }
-            },
-
             __setCurrentChatId: function(id)
             {
                 this.currentChatId = id;
 
                 this.__markChatAsRead(this.currentChatId);
             },
+
+            __checkCurrentChatNewMessages: function()
+            {
+                if ( ! this.currentChatId)
+                {
+                    console.log('theres no current');
+                    return;
+                }
+
+                var lastRead = this.chats[this.currentChatId].last_read_message_serial;
+                console.log('lastRead');
+                console.log(lastRead);
+
+                var lastMessage = this.chats[this.currentChatId].last_message_serial;
+                console.log('lastMessage');
+                console.log(lastMessage);
+
+                if (lastRead < lastMessage)
+                {
+                    this.__markChatAsRead(this.currentChatId);
+                }
+            }
         },
 
         ready: function()
@@ -316,6 +314,11 @@
             }.bind(this));
 
             socket.on('chat-channel:ChatResponded', function(data)
+            {
+                this.__loadChats();
+            }.bind(this));
+
+            socket.on('chat-channel:ChatRead', function(data)
             {
                 this.__loadChats();
             }.bind(this));
