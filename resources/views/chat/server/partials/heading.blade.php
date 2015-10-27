@@ -8,7 +8,7 @@
                 @{{ __getFromCurrentChat('talker.fullName') }}
             </div>
             <div class="col-md-2">
-                <span class="label label-success pull-right">4 mensagens</span>
+                <span class="label label-success pull-right">@{{ currentChatMessageCount }}</span>
             </div>
         </div>
     </h4>

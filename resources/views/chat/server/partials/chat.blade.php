@@ -12,7 +12,7 @@
 
                     <a href="javascript:;" class="name">@{{ message.talker.fullName }}</a>
 
-                    <a href="javascript:;" class="image"><img alt="" src="@{{ message.talker.avatar }}" /></a>
+                    <a href="javascript:;" class="image"><img alt="" v-bind:src="message.talker.avatar" /></a>
                     <div class="message">
                         @{{ message.message }}
                     </div>

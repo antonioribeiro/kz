@@ -355,6 +355,15 @@
             this.__loadScripts();
 
             this.__listenOnAllChatSockets();
+        },
+
+        computed: {
+            currentChatMessageCount: function ()
+            {
+                var count = Object.keys(this.chats[this.currentChatId].messages).length;
+
+                return count + (count == 1 ? ' mensagem' : ' mensagens');
+            }
         }
     });
 

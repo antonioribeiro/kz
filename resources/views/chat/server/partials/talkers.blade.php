@@ -6,7 +6,7 @@
     <div class="panel-body bg-black">
         <div class="media media-sm" v-for="chat in chats" track-by="id">
             <a class="media-left" href="javascript:;">
-                <img src="@{{ chat.talker.avatar }}" alt="" class="media-object">
+                <img v-bind:src="chat.talker.avatar" alt="" class="media-object">
             </a>
             <div class="media-body">
                 <div class="row">
