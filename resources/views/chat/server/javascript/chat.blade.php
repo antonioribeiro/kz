@@ -318,6 +318,23 @@
         }
     });
 
+    Vue.directive('end-chat-selector', {
+        bind: function () {
+            var vm = this.vm;
+            var el = $(this.el);
+            el.on('hidden.bs.modal', function() {
+                vm.data.currentTask = 'whatever value you want here';
+            });
+        },
+        update: function (newValue, oldValue) {
+            // i don't think you have anything here
+        },
+        unbind: function () {
+            // not sure that you have anything here
+            // maybe unbind the modal if bootstrap has that
+        }
+    })
+
     function padzero(num, size) {
         var s = num+"";
         while (s.length < size) s = "0" + s;

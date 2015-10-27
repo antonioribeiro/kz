@@ -2,6 +2,8 @@
 <div class="panel panel-inverse" data-sortable-id="index-2">
     @include('chat.server.partials.heading')
 
+    @include('chat.server.partials.footer')
+
     <div class="panel-body bg-silver">
         <div data-scrollbar="true" data-height="425px">
             <ul class="chats">
@@ -18,6 +20,6 @@
         </div>
     </div>
 
-    @include('chat.server.partials.footer')
+
 </div>
 <!-- end chat panel -->

@@ -35,6 +35,8 @@
             <!-- /texts -->
         </div>
         <!-- end row -->
+
+        @include('chat.server.partials.end-chat-modal')
     </div>
     <!-- end #content -->
 
