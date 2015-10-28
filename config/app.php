@@ -6,6 +6,10 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
+    'upload_root' => 'public',
+
+	'upload_relative_path' => 'files/uploaded',
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

@@ -2,23 +2,23 @@
 
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
-use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClient;
-use PragmaRX\Sdk\Services\Users\Data\Entities\User;
+use App\Services\Users\Data\Entities\User;
 use PragmaRX\Sdk\Services\Users\Data\Entities\UserActivation;
+use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClient;
 
 class AlerjTableSeeder extends Seeder
 {
-	private $names = [];
-
 	public function run()
 	{
+		$fileRepository = app()->make('PragmaRX\Sdk\Services\Files\Data\Repositories\File');
+
+		$file = $fileRepository->uploadFromSystemFile(public_path('assets/images/logo-alo-alerj-50px.png'), User::first());
+
 		$businessesRepository = app()->make('PragmaRX\Sdk\Services\Businesses\Data\Repositories\Businesses');
 
-		$chatRepository = app()->make('PragmaRX\Sdk\Services\Chat\Data\Repositories\Chat');
-
-		$chatRepository->create('João Miranda', 'joao.miranda@gmail.com');
-
 		$client = BusinessClient::where('name', 'Alô Alerj')->first();
+		$client->avatar_id = $file->id;
+		$client->save();
 
 		$faker = Faker::create();
 
