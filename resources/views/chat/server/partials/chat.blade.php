@@ -14,7 +14,7 @@
 
                     <a href="javascript:;" class="image"><img alt="" v-bind:src="message.talker.avatar" /></a>
                     <div class="message">
-                        @{{ message.message }}
+                        @{{{ message.message }}}
                     </div>
                 </li>
             </ul>

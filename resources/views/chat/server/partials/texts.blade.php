@@ -13,7 +13,7 @@
         <div v-repeat="script: scripts | orderBy 'order'">
             <div class="note note-@{{ script.color }}">
                 <p>
-                    @{{ script.script }}
+                    @{{{ script.script }}}
                     <br><br>
                     <button class="btn btn-xs btn-primary pull-right" v-on="click: __sendScript(script.id)">enviar</button>
                     <br>

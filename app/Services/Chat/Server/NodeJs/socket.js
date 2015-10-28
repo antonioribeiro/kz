@@ -26,9 +26,14 @@ redis.on('message', function(channel, message)
 
     var text = '';
 
-    if (typeof message.data != 'undefined' && typeof message.data.message != 'undefined')
+    if (typeof message.data != 'undefined' && message.data && typeof message.data.message != 'undefined')
     {
-        text = '> '+message.data.message;
+        if (typeof message.data.fullName != 'undefined' && message.data.fullName)
+        {
+            text += ' # '+message.data.fullName;
+        }
+
+        text += '> '+message.data.message;
     }
 
     console.log(channel + ': ' + message.event + text);

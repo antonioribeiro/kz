@@ -1,19 +1,23 @@
 <div v-if="socketConnected">
     <div class="panel-footer">
         <div class="row">
-            <div class="col-md-2">
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#end-chat-modal">ENCERRAR</button>
-            </div>
-
-            <div class="col-md-10">
-                <form name="send_message_form" data-id="message-form">
-                    <div class="input-group">
-                        <input type="text" v-model="textInput" class="form-control input-sm" name="message" placeholder="Digite sua mensagem aqui">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary btn-sm" type="button" v-on="click: __sendMessage">Enviar</button>
-                        </span>
-                    </div>
-                </form>
+            <div class="col-md-12">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <div class="btn btn-danger btn-sm" data-toggle="modal" data-target="#end-chat-modal"><i class="fa fa-check"></i> Concluir</div>
+                    </span>
+                    <input
+                        type="text"
+                        v-model="textInput"
+                        class="form-control input-sm"
+                        name="message"
+                        placeholder="Digite sua mensagem aqui"
+                        v-on="keyup:__sendMessage | key 13"
+                    >
+                    <span class="input-group-btn">
+                        <div class="btn btn-primary btn-sm" v-on="click: __sendMessage"><i class="fa fa-send"></i>&nbsp;&nbsp;Enviar</div>
+                    </span>
+                </div>
             </div>
         </div>
     </div>

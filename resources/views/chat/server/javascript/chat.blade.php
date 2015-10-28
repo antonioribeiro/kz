@@ -55,6 +55,8 @@
                         this.__checkCurrentChatNewMessages();
 
                         this.__checkLastThirdPartyMessage();
+
+                        this.__checkIfChatIsNew();
                     }
                 );
             },
@@ -134,8 +136,16 @@
                 return total;
             },
 
-            __terminateChat: function()
+            __terminateCurrentChat: function()
             {
+                this.$http.post(
+                    '{{ url() }}/api/v1/chat/server/terminate',
+                    {
+                        _token: '{{ csrf_token() }}',
+                        chatId: this.currentChatId
+                    }
+                );
+
                 this.currentChatId = null;
             },
 
@@ -222,6 +232,11 @@
                 {
                     this.__loadChats();
                 }.bind(this));
+
+                this.__socketOn('chat-channel:ChatTerminated', function(data)
+                {
+                    this.__loadChats();
+                }.bind(this));
             },
 
             __listenOnChatSocket: function(chatId)
@@ -243,10 +258,13 @@
 
             __humanDate: function(date)
             {
-                var human = new Date(date);
+                day = date.substring(8,10);
+                month = date.substring(5,7);
+                hour = date.substring(11,13);
+                minute = date.substring(14,16);
 
-                return  padzero(human.getDay(),2) + '/' + padzero(human.getMonth(),2) + ' às ' +
-                        padzero(human.getHours(),2) + ':' + padzero(human.getMinutes(),2);
+                return  day + '/' + month + ' às ' +
+                        hour + ':' + minute;
             },
 
             __getNextScriptCount: function()
@@ -345,7 +363,19 @@
 
                     this.$set('lastThirdPartyMessage', last);
                 }
-            }
+            },
+
+            __checkIfChatIsNew: function()
+            {
+                var count = Object.keys(this.chats).length;
+
+                if (this.chatCount < count)
+                {
+                    this.__playNewMessageSound();
+                }
+
+                this.chatCount = count;
+            },
         },
 
         ready: function()

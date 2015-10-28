@@ -13,7 +13,9 @@
                     <div class="col-md-6">
                         @{{ unreadChats[chat.id] | json }}
 
-                        <h4 class="media-heading text-white">@{{ chat.talker.fullName }}</h4>
+                        <h4 class="media-heading text-white">
+                            @{{ chat.talker.fullName }}
+                        </h4>
                         <chatservice chat-service="@{{ chat.service }}"></chatservice>
                         &nbsp;
                         <span class="label label-warning animated flash infinite" v-if="chat.last_read_message_serial < chat.last_message_serial && chat.id !== currentChatId">
