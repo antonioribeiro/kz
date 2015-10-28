@@ -28,7 +28,7 @@
                     ],
                     'rows' => $scripts,
                     'rowButtonsCaption' => 'Opções',
-                    'rowButtonsView' => 'scripts.partials.index-script-buttons',
+                    'rowButtonsView' => 'scripts.partials.table-row-buttons',
                 ]
             )
         </div>

@@ -30,6 +30,8 @@
                         'role' => 'Cargo',
                     ],
                     'rows' => $users,
+                    'rowButtonsCaption' => 'Opções',
+                    'rowButtonsView' => 'businesses.users.partials.table-row-buttons',
                 ]
             )
         </div>
