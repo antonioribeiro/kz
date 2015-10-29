@@ -3,6 +3,7 @@
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Services\Users\Data\Entities\User;
+use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClientUser;
 use PragmaRX\Sdk\Services\Users\Data\Entities\UserActivation;
 use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClient;
 
@@ -16,7 +17,9 @@ class AlerjTableSeeder extends Seeder
 
 		$businessesRepository = app()->make('PragmaRX\Sdk\Services\Businesses\Data\Repositories\Businesses');
 
-		$client = BusinessClient::where('name', 'Alô Alerj')->first();
+		$business = $businessesRepository->createBusiness(['name' => 'Alerj']);
+
+		$client = $businessesRepository->createClientForBusiness($business, 'Alô Alerj');
 		$client->avatar_id = $file->id;
 		$client->save();
 
@@ -34,6 +37,11 @@ class AlerjTableSeeder extends Seeder
 			'is_root' => false
 		]);
 
+		$businessClientUser = BusinessClientUser::firstOrCreate([
+			'business_client_id' => $client->id,
+		    'user_id' => $anderson->id
+		]);
+
 		UserActivation::create(
 			[
 				'user_id' => $anderson->id,
@@ -42,7 +50,7 @@ class AlerjTableSeeder extends Seeder
 			]
 		);
 
-		$businessesRepository->createClientUserRole($client, 'manager', $anderson);
+		$businessesRepository->createClientUserRole($client, 'manager', $businessClientUser);
 	}
 
 	/**
