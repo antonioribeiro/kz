@@ -98,4 +98,5 @@
 
     @yield('javascript')
     @yield('component-javascript')
+    @yield('page-javascript')
 @stop

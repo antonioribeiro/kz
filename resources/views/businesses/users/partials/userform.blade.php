@@ -4,6 +4,10 @@
 
 @section('component-panel-contents')
     {!! Form::opener(isset($user) ? $user : null, ['route' => $route, 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
+        @if (isset($user))
+            {!! Form::hidden('id', $user->id) !!}
+        @endif
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">

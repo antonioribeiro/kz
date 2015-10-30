@@ -5,9 +5,12 @@
     <i class="fa fa-edit"></i>
 </a>
 
-<a href="{{ route('businesses.users.delete', ['id' => $row['id']]) }}"
+<a href="#"
    class="btn btn-danger btn-xs"
    title="Apagar"
+   data-toggle="modal"
+   data-target="#delete-user-modal"
+   @click="currentId = '{{ $row['id'] }}'"
 >
     <i class="fa fa-trash"></i>
 </a>
