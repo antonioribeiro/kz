@@ -1,12 +1,14 @@
 <div id="top-menu" class="top-menu">
     <!-- begin top-menu nav -->
     <ul class="nav">
-        <li class="{{ set_menu_active('dashboard') ?: set_menu_active('/') }}">
-            <a href="{{ route('dashboard') }}">
-                <i class="fa fa-laptop"></i>
-                <span>Painel de Controle</span>
-            </a>
-        </li>
+        @can('viewDashboard', $current_user)
+            <li class="{{ set_menu_active('dashboard') ?: set_menu_active('/') }}">
+                <a href="{{ route('dashboard') }}">
+                    <i class="fa fa-laptop"></i>
+                    <span>Painel de Controle</span>
+                </a>
+            </li>
+        @endcan
 
         <li class="{{ set_menu_active('chat/server') }}">
             <a href="{!! route('chat.server.index') !!} ">
@@ -15,21 +17,23 @@
             </a>
         </li>
 
-        <li class="{{ set_menu_active('businesses/users') ?: set_menu_active('businesses/users/create') }}">
-            <a href="{!! route('businesses.users.index') !!} ">
-                <i class="fa fa-users"></i>
-                <span>Usuários</span>
-            </a>
-        </li>
+        @can('viewUsers', $current_user)
+            <li class="{{ set_menu_active('businesses/users') ?: set_menu_active('businesses/users/create') }}">
+                <a href="{!! route('businesses.users.index') !!} ">
+                    <i class="fa fa-users"></i>
+                    <span>Usuários</span>
+                </a>
+            </li>
+        @endcan
 
-        <li class="{{ set_menu_active('chat/server/scripts') }}">
-            <a href="{!! route('chat.server.scripts.index') !!} ">
-                <i class="fa fa-list"></i>
-                <span>Scripts</span>
-            </a>
-        </li>
+        @can('viewScripts', $current_user)
+            <li class="{{ set_menu_active('chat/server/scripts') }}">
+                <a href="{!! route('chat.server.scripts.index') !!} ">
+                    <i class="fa fa-list"></i>
+                    <span>Scripts</span>
+                </a>
+            </li>
+        @endcan
     </ul>
     <!-- end top-menu nav -->
 </div>
-
-

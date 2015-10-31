@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
 use Auth;
 
 class HomeController extends Controller
@@ -13,6 +14,11 @@ class HomeController extends Controller
 			return view('home.landing');
 		}
 
-		return view('home.dashboard');
+		if (Gate::allows('viewDashboard', Auth::user()))
+		{
+			return view('home.dashboard');
+		}
+
+		return redirect()->route('chat.server.index');
 	}
 }

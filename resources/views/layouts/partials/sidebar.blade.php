@@ -10,7 +10,7 @@
                 </div>
                 <div class="info">
                     {{ $current_user->present()->fullName }}
-                    <small>{{ $current_user->present()->businessRole->description }}</small>
+                    <small>{{ $current_user->businessRole->description }}</small>
                 </div>
             </li>
         </ul>

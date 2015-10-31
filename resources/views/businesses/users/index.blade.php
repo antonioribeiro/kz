@@ -15,7 +15,7 @@
         <!-- end page-header -->
 
         <!-- begin row -->
-        <div class="row">
+        <div class="row" id="vue-table">
             @include('components.table',
                 [
                     'title' => 'Usuários',
@@ -32,14 +32,15 @@
                     'rowButtonsView' => 'businesses.users.partials.table-row-buttons',
                 ]
             )
+
+            @include('partials.delete-modal', [
+                'message' => 'Deseja realmente deletar este usuário?',
+                'divId' => 'delete-user-modal',
+                'deleteUri' => '/businesses/users/delete/'
+            ])
         </div>
         <!-- end row -->
 
-        @include('partials.delete-modal', [
-            'message' => 'Deseja realmente deletar este usuário?',
-            'divId' => 'delete-user-modal',
-            'deleteUri' => '/businesses/users/delete/'
-        ])
     </div>
     <!-- end #content -->
 @stop

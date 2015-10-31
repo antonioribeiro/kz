@@ -50,7 +50,7 @@ class AlerjTableSeeder extends Seeder
 			]
 		);
 
-		$businessesRepository->createClientUserRole($client, 'manager', $businessClientUser);
+		$businessesRepository->createClientUserRole($businessClientUser, $business->id, 'manager');
 	}
 
 	/**
