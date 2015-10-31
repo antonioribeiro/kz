@@ -11,8 +11,6 @@
         </ol>
         <!-- end breadcrumb -->
 
-        @include('notifications.flash')
-
         <!-- begin page-header -->
         <h1 class="page-header">Novo Usuário <small>digite os dados abaixo</small></h1>
         <!-- end page-header -->

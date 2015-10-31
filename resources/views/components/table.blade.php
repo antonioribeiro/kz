@@ -55,6 +55,10 @@
         </div>
     </div>
     <!-- end panel -->
+
+    @if(env('APP_DEBUG'))
+        @{{ $data |  json }}
+    @endif
 </div>
 
 @section('component-javascript')
@@ -109,4 +113,6 @@
             TableManageButtons.init();
         });
     </script>
+
+    @include('components.partials.table-vue')
 @stop

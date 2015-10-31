@@ -3,7 +3,11 @@
 @section('title', 'Digite os dados nos campos abaixo')
 
 @section('component-panel-contents')
-    {!! Form::opener(['route' => 'chat.server.scripts.store', 'class' => '', 'id' => 'create-chat-form', 'no-return-ajax-url' => true]) !!}
+    {!! Form::opener(isset($script) ? $script : null, ['route' => $postRoute, 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
+        @if (isset($script))
+            {!! Form::hidden('id', $script->id) !!}
+        @endif
+
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
@@ -40,7 +44,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-sm btn-primary">Criar script</button>
-        <a href="{{ route('chat.server.scripts.index') }}" type="reset" class="btn btn-sm btn-warning">Cancelar</a>
+        @include('partials.form-submit-buttons', ['cancelRoute' => 'chat.server.scripts.index' ])
+
     {!! Form::close() !!}
 @stop

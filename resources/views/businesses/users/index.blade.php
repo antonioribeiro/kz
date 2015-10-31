@@ -3,15 +3,12 @@
 @section('content')
     <!-- begin #content -->
     <div id="business-users" class="content">
-        @{{ $data | json }}
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
-            <li><a href="javascript:;">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>Usuários</li>
         </ol>
         <!-- end breadcrumb -->
-
-        @include('notifications.flash')
 
         <!-- begin page-header -->
         <h1 class="page-header">Usuários <small>registrados no sistema</small></h1>
@@ -38,26 +35,12 @@
         </div>
         <!-- end row -->
 
-        @include('businesses.users.partials.delete-user-modal')
+        @include('partials.delete-modal', [
+            'message' => 'Deseja realmente deletar este usuário?',
+            'divId' => 'delete-user-modal',
+            'deleteUri' => '/businesses/users/delete/'
+        ])
     </div>
     <!-- end #content -->
 @stop
 
-@section('page-javascript')
-    <script>
-        new Vue({
-            el: '#business-users',
-            data: {
-                currentId: '000',
-            },
-            methods: {
-                __deleteUser: function()
-                {
-                    console.log('clicked!');
-
-                    window.location.replace("/businesses/users/delete/"+this.currentId);
-                }
-            },
-        })
-    </script>
-@stop

@@ -5,12 +5,10 @@
     <div id="content" class="content">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
-            <li><a href="javascript:;">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li>Painel de Controle</li>
         </ol>
         <!-- end breadcrumb -->
-
-        @include('notifications.flash')
 
         <!-- begin page-header -->
         <h1 class="page-header">Painel de Controle <small>sumário do atendimento</small></h1>

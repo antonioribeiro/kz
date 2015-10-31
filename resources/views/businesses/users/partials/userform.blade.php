@@ -3,7 +3,7 @@
 @section('title', 'Digite os dados nos campos abaixo')
 
 @section('component-panel-contents')
-    {!! Form::opener(isset($user) ? $user : null, ['route' => $route, 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
+    {!! Form::opener(isset($user) ? $user : null, ['route' => $postRoute, 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
         @if (isset($user))
             {!! Form::hidden('id', $user->id) !!}
         @endif
@@ -40,8 +40,6 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-sm btn-primary">{{ $submitButton }}</button>
-
-        <a href="{{ route('businesses.users.index') }}" type="reset" class="btn btn-sm btn-warning">Cancelar</a>
+        @include('partials.form-submit-buttons')
     {!! Form::close() !!}
 @stop
