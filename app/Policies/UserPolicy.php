@@ -10,15 +10,30 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-	public function update(User $user)
+	public function create(User $user)
 	{
 		return $user->businessRole->power <= BusinessRole::POWER_MANAGER;
 	}
 
-	public function create(User $user)
+	public function update(User $user)
 	{
-		return $user->businessRole->power <= BusinessRole::POWER_MANAGER;
-    }
+		return $this->create($user);
+	}
+
+	public function edit(User $user)
+	{
+		return $this->create($user);
+	}
+
+	public function store(User $user)
+	{
+		return $this->create($user);
+	}
+
+	public function delete(User $user)
+	{
+		return $this->create($user);
+	}
 
 	public function viewUsers(User $user)
 	{

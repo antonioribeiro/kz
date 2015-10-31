@@ -25,17 +25,24 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">E-mail</label>
                     {!! Form::text('email', null, ['id' => 'email', 'type' => 'email', 'class' => 'form-control', 'placeholder' => 'Endereço de e-mail']) !!}
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label">Cliente</label>
                     {!! Form::select('business_client_id', $businessClients, isset($user) ? $user->business_client_id : null, ['id' => 'business_client_id', 'class' => 'form-control', 'placeholder' => 'SELECIONE O CLIENTE']) !!}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Cargo</label>
+                    {!! Form::select('business_role_id', $roles, isset($user) ? $user->business_role_id : null, ['id' => 'business_client_id', 'class' => 'form-control', 'placeholder' => 'SELECIONE O CARGO']) !!}
                 </div>
             </div>
         </div>
