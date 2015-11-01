@@ -18,21 +18,21 @@ class ScriptPolicy
 
 	public function update(User $user, ChatScript $chatScript)
 	{
-		return $this->create($user);
+		return $this->create($user, $chatScript);
 	}
 
 	public function edit(User $user, ChatScript $chatScript)
 	{
-		return $this->create($user);
+		return $this->create($user, $chatScript);
 	}
 
 	public function store(User $user, ChatScript $chatScript)
 	{
-		return $this->create($user);
+		return $this->create($user, $chatScript);
 	}
 
 	public function delete(User $user, ChatScript $chatScript)
 	{
-		return $this->create($user);
+		return $this->create($user, $chatScript);
 	}
 }

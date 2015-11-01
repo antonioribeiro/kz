@@ -111,6 +111,13 @@ return [
 		],
 
 		[
+			'name' => 'pragmarx/markdown',
+			'enabled' => true,
+			'serviceProviders' => ['PragmaRX\Sdk\Services\Markdown\Service\Provider'],
+			'facades' => ['Markdown' => 'PragmaRX\Sdk\Services\Markdown\Service\Facade']
+		],
+
+		[
 			'name' => 'pragmarx/exception',
 			'enabled' => true,
 			'serviceProviders' => ['PragmaRX\Sdk\Services\ExceptionHandler\Service\Provider'],
