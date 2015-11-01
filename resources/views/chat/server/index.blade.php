@@ -30,7 +30,8 @@
             <!-- /chat -->
 
             <!-- texts -->
-            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">                @include('chat.server.partials.texts')
+            <div class="col-sm-12s col-md-2 animated bounceInDown" v-if="currentChatId">
+                @include('chat.server.partials.scripts')
             </div>
             <!-- /texts -->
         </div>

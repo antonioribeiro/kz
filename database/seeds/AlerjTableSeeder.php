@@ -4,8 +4,10 @@ use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Services\Users\Data\Entities\User;
 use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClientUser;
+use PragmaRX\Sdk\Services\Chat\Data\Entities\ChatScript;
+use PragmaRX\Sdk\Services\Chat\Data\Entities\ChatScriptType;
+use PragmaRX\Sdk\Services\Chat\Data\Entities\ChatService;
 use PragmaRX\Sdk\Services\Users\Data\Entities\UserActivation;
-use PragmaRX\Sdk\Services\Businesses\Data\Entities\BusinessClient;
 
 class AlerjTableSeeder extends Seeder
 {
@@ -19,9 +21,7 @@ class AlerjTableSeeder extends Seeder
 
 		$business = $businessesRepository->createBusiness(['name' => 'Alerj']);
 
-		$client = $businessesRepository->createClientForBusiness($business, 'Alô Alerj');
-		$client->avatar_id = $file->id;
-		$client->save();
+		$client = $this->createClient($businessesRepository, $business, $file);
 
 		$faker = Faker::create();
 
@@ -37,20 +37,13 @@ class AlerjTableSeeder extends Seeder
 			'is_root' => false
 		]);
 
-		$businessClientUser = BusinessClientUser::firstOrCreate([
-			'business_client_id' => $client->id,
-		    'user_id' => $anderson->id
-		]);
+		$businessClientUser = $this->createBusinessClientUser($client, $anderson);
 
-		UserActivation::create(
-			[
-				'user_id' => $anderson->id,
-				'code' => $faker->randomDigit(),
-				'completed' => true,
-			]
-		);
+		$this->activateUser($anderson, $faker);
 
-		$businessesRepository->createClientUserRole($businessClientUser, $business->id, 'manager');
+		$businessesRepository->createClientUserRole($businessClientUser, 'manager');
+
+		$this->createScripts($client);
 	}
 
 	/**
@@ -64,5 +57,83 @@ class AlerjTableSeeder extends Seeder
 		}
 
 		return $user;
+	}
+
+	/**
+	 * @param $anderson
+	 * @param $faker
+	 */
+	private function activateUser($anderson, $faker)
+	{
+		UserActivation::create(
+			[
+				'user_id' => $anderson->id,
+				'code' => $faker->randomDigit(),
+				'completed' => true,
+			]
+		);
+	}
+
+	/**
+	 * @param $client
+	 * @param $anderson
+	 * @return static
+	 */
+	private function createBusinessClientUser($client, $anderson)
+	{
+		$businessClientUser = BusinessClientUser::firstOrCreate(
+			[
+				'business_client_id' => $client->id,
+				'user_id' => $anderson->id
+			]
+		);
+		return $businessClientUser;
+	}
+
+	/**
+	 * @param $businessesRepository
+	 * @param $business
+	 * @param $file
+	 * @return mixed
+	 */
+	private function createClient($businessesRepository, $business, $file)
+	{
+		$client = $businessesRepository->createClientForBusiness($business, 'Alô Alerj');
+		$client->avatar_id = $file->id;
+		$client->save();
+		return $client;
+	}
+
+	private function createScripts($client)
+	{
+		$service = ChatService::where('name', 'Chat')->first();
+
+		$opening = ChatScriptType::where('name', 'opening')->first();
+		$script = ChatScriptType::where('name', 'script')->first();
+		$closing = ChatScriptType::where('name', 'closing')->first();
+
+		ChatScript::create([
+           'name' => 'Abertura do Chat',
+           'business_client_id' => $client->id,
+           'chat_service_id' => $service->id,
+           'script' => 'Olá, você está no atendimento online via chat do serviço Alô Alerj, meu nome é [operator], como posso ajudá-lo?',
+           'chat_script_type_id' => $opening->id,
+		]);
+
+		ChatScript::create([
+			'name' => 'Dados do cidadão',
+			'business_client_id' => $client->id,
+			'chat_service_id' => $service->id,
+			'script' => 'Para prosseguirmos com o atendimento, vou precisar que você me forneça os seguintes dados: <br><br>NOME COMPLETO<br>CPF<br>TELEFONE FIXO<br>TELEFONE CELULAR<br>ENDEREÇO RESIDENCIAL COM CEP',
+			'chat_script_type_id' => $script->id,
+		]);
+
+		ChatScript::create([
+			'name' => 'Fechamento do Chat',
+			'business_client_id' => $client->id,
+			'chat_service_id' => $service->id,
+			'script' => 'Em breve você receberá um comunicado nosso, e também a transcrição desta conversa por e-mail, caso tenha mais alguma dúvida entre em contato novamente e tenha em mãos o número do seu protocolo de atendimento. O Alô Alerj agradece a confiança depositada nele. <br><br>ALERJ, aqui você tem poder!',
+			'chat_script_type_id' => $closing->id,
+		]);
 	}
 }

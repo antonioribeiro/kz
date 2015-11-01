@@ -12,6 +12,7 @@
     <div class="panel-body">
         <div v-repeat="script: scripts | orderBy 'order'">
             <div class="note note-@{{ script.color }}">
+                <h5><strong>@{{ script.name }}</strong></h5>
                 <p>
                     @{{{ script.script }}}
                     <br><br>
