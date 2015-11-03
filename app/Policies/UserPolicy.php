@@ -49,4 +49,9 @@ class UserPolicy
 	{
 		return $user->businessRole->power <= BusinessRole::POWER_TRIAGE;
 	}
+
+	public function viewBusinesses(User $user)
+	{
+		return $user->is_root;
+	}
 }
