@@ -14,8 +14,8 @@
         )
 
         @include('partials.delete-modal', [
-            'message' => 'Deseja realmente deletar esta empresa?',
-            'divId' => 'delete-enterprise-modal',
+            'message' => 'Deseja realmente deletar este cliente?',
+            'divId' => 'delete-client-modal',
         ])
     </div>
 <!-- end table -->

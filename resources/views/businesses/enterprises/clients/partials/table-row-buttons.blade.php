@@ -10,7 +10,7 @@
    title="Apagar"
    data-toggle="modal"
    data-target="#delete-client-modal"
-   @click="currentId = '{{ $row['id'] }}'"
+   @click="__setCurrentId('clientId', '{{ $row['id'] }}') || __setCurrentId('businessId', '{{ $business->id }}')"
 >
     <i class="fa fa-trash"></i>
 </a>

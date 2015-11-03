@@ -6,6 +6,7 @@
     {!! Form::opener(isset($client) ? $client : null, ['route' => [$postRoute, isset($postRouteParameters) ? $postRouteParameters : []], 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
         @if (isset($client))
             {!! Form::hidden('id', $client->id) !!}
+            {!! Form::hidden('businessId', $business->id) !!}
         @endif
 
         <div class="row">
