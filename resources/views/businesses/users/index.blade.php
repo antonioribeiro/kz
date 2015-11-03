@@ -36,7 +36,6 @@
             @include('partials.delete-modal', [
                 'message' => 'Deseja realmente deletar este usuário?',
                 'divId' => 'delete-user-modal',
-                'deleteUri' => '/businesses/users/delete/'
             ])
         </div>
         <!-- end row -->

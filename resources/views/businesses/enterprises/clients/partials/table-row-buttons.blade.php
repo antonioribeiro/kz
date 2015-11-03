@@ -1,4 +1,4 @@
-<a href="{{ route('businesses.enterprises.edit', ['id' => $row['id']]) }}"
+<a href="{{ route('businesses.clients.edit', ['id' => $row['id']]) }}"
    class="btn btn-primary btn-xs"
    title="Editar"
 >
@@ -9,7 +9,7 @@
    class="btn btn-danger btn-xs"
    title="Apagar"
    data-toggle="modal"
-   data-target="#delete-enterprise-modal"
+   data-target="#delete-client-modal"
    @click="currentId = '{{ $row['id'] }}'"
 >
     <i class="fa fa-trash"></i>
