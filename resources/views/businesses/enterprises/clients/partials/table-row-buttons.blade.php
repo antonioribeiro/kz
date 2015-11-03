@@ -1,4 +1,4 @@
-<a href="{{ route('businesses.clients.edit', ['id' => $row['id']]) }}"
+<a href="{{ route('businesses.clients.edit', ['business_id' => $business->id, 'id' => $row['id']]) }}"
    class="btn btn-primary btn-xs"
    title="Editar"
 >

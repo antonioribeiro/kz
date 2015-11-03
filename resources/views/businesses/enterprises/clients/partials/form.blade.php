@@ -3,9 +3,9 @@
 @section('title', 'Digite os dados nos campos abaixo')
 
 @section('component-panel-contents')
-    {!! Form::opener(isset($business) ? $business : null, ['route' => $postRoute, 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
-        @if (isset($business))
-            {!! Form::hidden('id', $business->id) !!}
+    {!! Form::opener(isset($client) ? $client : null, ['route' => [$postRoute, isset($postRouteParameters) ? $postRouteParameters : []], 'class' => '', 'id' => 'business-user-create', 'no-return-ajax-url' => true]) !!}
+        @if (isset($client))
+            {!! Form::hidden('id', $client->id) !!}
         @endif
 
         <div class="row">
