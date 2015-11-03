@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Policies\BusinessPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\ScriptPolicy;
 use App\Policies\DashboardPolicy;
 use App\Services\Users\Data\Entities\User;
+use PragmaRX\Sdk\Services\Businesses\Data\Entities\Business;
 use PragmaRX\Sdk\Services\Chat\Data\Entities\ChatScript;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -20,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         User::class => UserPolicy::class,
 		ChatScript::class => ScriptPolicy::class,
+        Business::class => BusinessPolicy::class,
     ];
 
     /**
