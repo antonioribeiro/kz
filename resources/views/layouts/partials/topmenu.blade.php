@@ -18,7 +18,7 @@
         </li>
 
         @can('viewUsers', $current_user)
-            <li class="{{ set_menu_active('businesses/users') ?: set_menu_active('businesses/users/*') }}">
+            <li class="{{ set_menu_active('businesses/client/users*') }}">
                 <a href="{!! route('businesses.users.index') !!} ">
                     <i class="fa fa-users"></i>
                     <span>Usuários</span>
@@ -27,10 +27,19 @@
         @endcan
 
         @can('viewScripts', $current_user)
-            <li class="{{ set_menu_active('chat/server/scripts/*') }}">
+            <li class="{{ set_menu_active('chat/server/scripts*') }}">
                 <a href="{!! route('chat.server.scripts.index') !!} ">
                     <i class="fa fa-list"></i>
                     <span>Scripts</span>
+                </a>
+            </li>
+        @endcan
+
+        @can('viewBusinesses', $current_user)
+            <li class="{{ set_menu_active('businesses/enterprises*') }}">
+                <a href="{!! route('businesses.enterprises.index') !!} ">
+                    <i class="fa fa-list"></i>
+                    <span>Empresas</span>
                 </a>
             </li>
         @endcan
