@@ -16,7 +16,7 @@
         <!-- end page-header -->
 
         <!-- begin form -->
-            @include('businesses.users.partials.userform')
+            @include('businesses.users.partials.form')
         <!-- end form -->
     </div>
     <!-- end #content -->
