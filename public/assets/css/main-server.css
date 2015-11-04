@@ -34,3 +34,8 @@ li.chat-line {
 li.v-enter, li.v-leave {
     opacity: 0;
 }
+
+.navbar-nav>li>div {
+    line-height: 20px;
+    padding: 17px 15px;
+}

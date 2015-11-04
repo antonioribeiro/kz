@@ -5,6 +5,7 @@ namespace App\Providers;
 use View;
 use Auth;
 use Config;
+use Business;
 use Language;
 use Illuminate\Support\ServiceProvider;
 
@@ -53,6 +54,10 @@ class ComposerServiceProvider extends ServiceProvider {
 			$view->with('app_name_caps', Config::get('app.name'));
 
 			$view->with('current_user', Auth::user());
+
+			$view->with('current_business', Business::getCurrent());
+
+			$view->with('all_businesses', Business::getAll());
 
 			$view->with('assets', asset('/'));
 

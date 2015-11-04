@@ -38,7 +38,7 @@
         @can('viewBusinesses', $current_user)
             <li class="{{ set_menu_active('businesses/enterprises*') }}">
                 <a href="{!! route('businesses.enterprises.index') !!} ">
-                    <i class="fa fa-list"></i>
+                    <i class="fa fa-institution"></i>
                     <span>Empresas</span>
                 </a>
             </li>

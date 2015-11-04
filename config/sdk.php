@@ -104,6 +104,13 @@ return [
 	'packages' => [
 
 		[
+			'name' => 'pragmarx/business',
+			'enabled' => true,
+			'serviceProviders' => ['PragmaRX\Sdk\Services\Businesses\Service\Provider'],
+			'facades' => ['Business' => 'PragmaRX\Sdk\Services\Businesses\Service\Facade']
+		],
+
+		[
 			'name' => 'pragmarx/push',
 			'enabled' => true,
 			'serviceProviders' => ['PragmaRX\Sdk\Services\Push\Service\Provider'],
