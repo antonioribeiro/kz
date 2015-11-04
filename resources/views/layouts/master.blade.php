@@ -72,7 +72,7 @@
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/plugins/gritter/js/jquery.gritter.js"></script>
     <script src="{{url('/')}}/templates/seantheme.com/color-admin-v1.9/admin/html/assets/js/dashboard-v2.min.js"></script>
 
-    <script src="http://cdn.jsdelivr.net/vue/1.0.0-rc.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.4/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
 

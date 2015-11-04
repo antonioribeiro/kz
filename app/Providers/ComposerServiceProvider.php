@@ -59,6 +59,8 @@ class ComposerServiceProvider extends ServiceProvider {
 
 			$view->with('all_businesses', Business::getAll());
 
+			$view->with('all_available_businesses', Business::getAllExceptCurrent());
+
 			$view->with('assets', asset('/'));
 
 			$view->with('assets_bower', asset('vendor'));
