@@ -20,6 +20,8 @@ class ComposerServiceProvider extends ServiceProvider {
 	{
 		View::composer('*', function($view)
 		{
+			Business::makeAll();
+
 			$view->with('html_lang', Language::getLocale());
 
 			$view->with('html_attributes', '');
@@ -60,6 +62,12 @@ class ComposerServiceProvider extends ServiceProvider {
 			$view->with('all_businesses', Business::getAll());
 
 			$view->with('all_available_businesses', Business::getAllExceptCurrent());
+
+			$view->with('current_business_client', Business::getCurrentClient());
+
+			$view->with('all_business_clients', Business::getAllClients());
+
+			$view->with('all_available_business_clients', Business::getAllClientsExceptCurrent());
 
 			$view->with('assets', asset('/'));
 
