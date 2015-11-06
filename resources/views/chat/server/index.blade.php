@@ -45,5 +45,5 @@
 @stop
 
 @section('javascript')
-    @include('chat.server.javascript.chat')
+    @include('chat.server.javascript.app')
 @stop

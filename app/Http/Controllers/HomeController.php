@@ -16,7 +16,7 @@ class HomeController extends Controller
 
 		if (Gate::allows('viewDashboard', Auth::user()))
 		{
-			return view('home.dashboard');
+			return view('dashboard.index');
 		}
 
 		return redirect()->route('chat.server.index');

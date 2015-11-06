@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- begin #content -->
-    <div id="content" class="content">
+    <div id="content" class="content" id="vue-dashboard">
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="/">Home</a></li>
@@ -72,4 +72,8 @@
         <!-- end row -->
     </div>
     <!-- end #content -->
+@stop
+
+@section('javascript')
+    @include('dashboard.javascript.app')
 @stop
