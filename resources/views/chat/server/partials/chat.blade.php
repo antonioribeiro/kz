@@ -7,7 +7,7 @@
     <div class="panel-body bg-silver">
         <div data-scrollbar="true" data-height="425px">
             <ul class="chats">
-                <li class="@{{ __chatLeftRight(message) }} animate pulse chat-line" v-repeat="message: __getCurrentChat().messages | orderBy 'serial' -1" id="@{{message.id}}" data-serial="@{{message.serial}}" v-transition>
+                <li class="@{{ __chatLeftRight(message) }} animate pulse chat-line" v-for="message in __getCurrentChat().messages | orderBy 'serial' -1" id="@{{message.id}}" data-serial="@{{message.serial}}">
                     <span class="date-time">@{{ __humanDate(message.created_at) }}</span>
 
                     <a href="javascript:;" class="name">@{{ message.talker.fullName }}</a>

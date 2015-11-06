@@ -11,8 +11,6 @@
             <div class="media-body">
                 <div class="row">
                     <div class="col-md-6">
-                        @{{ unreadChats[chat.id] | json }}
-
                         <h4 class="media-heading text-white">
                             @{{ chat.talker.fullName }}
                         </h4>
@@ -29,11 +27,11 @@
                             em atendimento
                         </label>
 
-                        <label class="btn btn-sm btn-warning pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== currentChatId" v-on="click: __selectChat(chat)">
+                        <label class="btn btn-sm btn-warning pull-right" v-if="__chatIsBeingResponded(chat) && __beingRespondendByCurrentUser(chat) && chat.id !== currentChatId" @click="__selectChat(chat)">
                             <strong>SELECIONAR</strong>
                         </label>
 
-                        <button class="btn btn-sm btn-success pull-right" v-if=" ! __chatIsBeingResponded(chat)" v-on="click: __respond(chat)">
+                        <button class="btn btn-sm btn-success pull-right" v-if=" ! __chatIsBeingResponded(chat)" @click="__respond(chat)">
                             <strong>ATENDER</strong>
                         </button>
                     </div>

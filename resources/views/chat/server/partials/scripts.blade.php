@@ -10,13 +10,13 @@
         <h4 class="panel-title">Scripts</h4>
     </div>
     <div class="panel-body">
-        <div v-repeat="script: scripts | orderBy 'order'">
+        <div v-for="script in scripts | orderBy 'order'">
             <div class="note note-@{{ script.color }}">
                 <h5><strong>@{{ script.name }}</strong></h5>
                 <p>
                     @{{{ script.script }}}
                     <br><br>
-                    <button class="btn btn-xs btn-primary pull-right" v-on="click: __sendScript(script.id)">enviar</button>
+                    <button class="btn btn-xs btn-primary pull-right" @click="__sendScript(script.id)">enviar</button>
                     <br>
                 </p>
             </div>

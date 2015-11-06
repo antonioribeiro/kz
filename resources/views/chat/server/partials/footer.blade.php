@@ -12,10 +12,10 @@
                         class="form-control input-sm"
                         name="message"
                         placeholder="Digite sua mensagem aqui"
-                        v-on="keyup:__sendMessage | key 13"
+                        v-on:keyup.13="__sendMessage"
                     >
                     <span class="input-group-btn">
-                        <div class="btn btn-primary btn-sm" v-on="click: __sendMessage"><i class="fa fa-send"></i>&nbsp;&nbsp;Enviar</div>
+                        <div class="btn btn-primary btn-sm" @click="__sendMessage"><i class="fa fa-send"></i>&nbsp;&nbsp;Enviar</div>
                     </span>
                 </div>
             </div>

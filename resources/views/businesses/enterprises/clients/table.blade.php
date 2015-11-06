@@ -6,6 +6,7 @@
                 'includeButtons' => 'businesses.enterprises.clients.partials.table-buttons',
                 'columns' => [
                     'name' => 'Nome',
+                    'chatLink' => 'Link para o chat',
                 ],
                 'rows' => $clients,
                 'rowButtonsCaption' => 'Opções',

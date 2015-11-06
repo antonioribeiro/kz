@@ -7,6 +7,8 @@
         <div class="row">
             <div class="col-md-12">
                 {!! Form::opener(['route' => 'chat.client.store']) !!}
+                    {!! Form::hidden('clientId', $clientId) !!}
+
                     <div class="form-group">
                         <label for="name">Nome</label>
                         {!! Form::text('name') !!}
