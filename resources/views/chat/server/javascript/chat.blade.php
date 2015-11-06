@@ -18,6 +18,8 @@
             lastThirdPartyMessage: 0,
             currentChatId: null,
             currentOperatorId: '{{ $currentOperatorId }}',
+            currentOperatorUserId: '{{ $currentOperatorUserId }}',
+            currentClientId: '{{ $currentClientId }}',
             socketConnected: false,
             chatLeftRight: 'left',
             colors: ['info', 'success', 'danger'],
@@ -44,8 +46,14 @@
 
             __loadChats: function()
             {
+                if ( ! this.currentClientId)
+                {
+                    return;
+                }
+
                 this.$http.get(
-                    '{{ url() }}/api/v1/chat/server/all',
+                    '{{ url() }}/api/v1/chat/server/all/for/client/'+this.currentClientId,
+
                     function(data, status, request)
                     {
                         this.$set('chats', data);
@@ -151,7 +159,7 @@
 
             __beingRespondendByCurrentUser: function(chat)
             {
-                return chat.responder_id == this.currentOperatorId;
+                return chat.responder.id == this.currentOperatorUserId;
             },
 
             __chatIsBeingResponded: function(chat)
