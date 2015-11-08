@@ -11,7 +11,9 @@
         el: '#vue-dashboard',
 
         data: {
-
+            online: {
+                count: 13,
+            }
         },
 
         methods:

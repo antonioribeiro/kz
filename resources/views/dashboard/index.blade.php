@@ -18,11 +18,11 @@
         <div class="row">
             <widget
                 color="bg-blue"
-                title="ONLINE"
+                title="EM ATENDIMENTO"
                 number="45"
                 icon="fa fa-globe fa-fw"
-                progress="width: 25%;"
-                description="Maior do que a semana passada (35%)"
+                progress="width: 96%;"
+                description="Maior do que a semana passada (72%)"
             ></widget>
 
             <widget
@@ -30,8 +30,8 @@
                 title="MENSAGENS"
                 number="139.400"
                 icon="fa fa-comments fa-fw"
-                progress="width: 25%;"
-                description="Maior do que a semana passada (35%)"
+                progress="width: 12%;"
+                description="Maior do que a semana passada (98%)"
             ></widget>
 
             <widget
@@ -39,8 +39,8 @@
                 title="ATENDIMENTOS"
                 number="3559"
                 icon="fa fa-list fa-fw"
-                progress="width: 25%;"
-                description="Maior do que a semana passada (35%)"
+                progress="width: 39%;"
+                description="Maior do que a semana passada (67%)"
             ></widget>
 
             <widget
@@ -49,7 +49,7 @@
                 number="150"
                 icon="fa fa-user fa-fw"
                 progress="width: 85%;"
-                description="Maior do que a semana passada (25%)"
+                description="Maior do que a semana passada (12%)"
             ></widget>
         </div>
         <!-- end row -->
