@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "predis/predis": "*",
         "pragmarx/sdk": "dev-master",
-        "venturecraft/revisionable": "~1.22"
+        "venturecraft/revisionable": "~1.22",
+        "nikic/php-parser": "~1.4.1"
     },
     "repositories": [
       {
