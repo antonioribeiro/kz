@@ -1881,12 +1881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/antonioribeiro/sdk.git",
-                "reference": "45b8c2af534597160a5213cb265784f5da036001"
+                "reference": "8ace06fc70e502a2914f8c5b286efaacbfb295fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antonioribeiro/sdk/zipball/45b8c2af534597160a5213cb265784f5da036001",
-                "reference": "45b8c2af534597160a5213cb265784f5da036001",
+                "url": "https://api.github.com/repos/antonioribeiro/sdk/zipball/8ace06fc70e502a2914f8c5b286efaacbfb295fc",
+                "reference": "8ace06fc70e502a2914f8c5b286efaacbfb295fc",
                 "shasum": ""
             },
             "require": {
@@ -1941,7 +1941,7 @@
                 "source": "https://github.com/antonioribeiro/sdk/tree/master",
                 "issues": "https://github.com/antonioribeiro/sdk/issues"
             },
-            "time": "2015-11-09 18:23:11"
+            "time": "2015-11-09 21:18:28"
         },
         {
             "name": "pragmarx/support",
