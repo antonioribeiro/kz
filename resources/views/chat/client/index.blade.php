@@ -1,14 +1,14 @@
 @extends('chat.client.layouts.master')
 
 @section('contents')
-    <h4>Chat</h4>
-
     <div class="container">
         <div class="row">
             <div class="col-md-5">
+                <h4>{{ $businessClientName }} - Chat</h4>
+
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <span class="glyphicon glyphicon-comment"></span> {{ $talkerUsername }}
+                        <span class="glyphicon glyphicon-comment"></span> {{ $talkerName }}
                         <div class="btn-group pull-right">
                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>
@@ -29,7 +29,7 @@
                         <ul class="chat">
                             <li v-for="message in chatInfo.messages | orderBy 'serial' -1" class="@{{ __chatLeftRight(message) }} clearfix">
                                 <span class="chat-img pull-@{{ __chatLeftRight(message) }}">
-                                    <img src="@{{ message.talker.avatar }}" alt="User Avatar" class="img-circle chat-avatar"/>
+
                                 </span>
 
                                 <div class="chat-body clearfix" v-if="__chatLeftRight(message) == 'left'">
