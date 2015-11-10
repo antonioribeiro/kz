@@ -321,12 +321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClassPreloader/ClassPreloader.git",
-                "reference": "2709d403270d685fd7b64b0a69522f389d072438"
+                "reference": "9b10b913c2bdf90c3d2e0d726b454fb7f77c552a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/2709d403270d685fd7b64b0a69522f389d072438",
-                "reference": "2709d403270d685fd7b64b0a69522f389d072438",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
+                "reference": "9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
                 "shasum": ""
             },
             "require": {
@@ -334,12 +334,12 @@
                 "php": ">=5.5.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.8|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -367,7 +367,7 @@
                 "class",
                 "preload"
             ],
-            "time": "2015-08-14 18:47:21"
+            "time": "2015-11-09 22:51:51"
         },
         {
             "name": "danielstjules/stringy",
@@ -1006,16 +1006,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d66e21fe5404e0950a40a39667d94666769867ac"
+                "reference": "4b8b1cdc9332a7aa4afff5e5b3d7183e9d882550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d66e21fe5404e0950a40a39667d94666769867ac",
-                "reference": "d66e21fe5404e0950a40a39667d94666769867ac",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4b8b1cdc9332a7aa4afff5e5b3d7183e9d882550",
+                "reference": "4b8b1cdc9332a7aa4afff5e5b3d7183e9d882550",
                 "shasum": ""
             },
             "require": {
-                "classpreloader/classpreloader": "~2.0",
+                "classpreloader/classpreloader": "~2.0|~3.0",
                 "danielstjules/stringy": "~1.8",
                 "doctrine/inflector": "~1.0",
                 "ext-mbstring": "*",
@@ -1025,7 +1025,7 @@
                 "monolog/monolog": "~1.11",
                 "mtdowling/cron-expression": "~1.0",
                 "nesbot/carbon": "~1.19",
-                "paragonie/random_compat": "^1.0.6",
+                "paragonie/random_compat": "~1.1",
                 "php": ">=5.5.9",
                 "psy/psysh": "0.6.*",
                 "swiftmailer/swiftmailer": "~5.1",
@@ -1127,7 +1127,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-11-09 14:30:10"
+            "time": "2015-11-10 14:38:43"
         },
         {
             "name": "laravelcollective/html",
