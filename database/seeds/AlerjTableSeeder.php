@@ -37,11 +37,26 @@ class AlerjTableSeeder extends Seeder
 			'is_root' => false
 		]);
 
+        $marco = $this->createUser([
+              'first_name' => 'Marco',
+              'last_name' => 'Vianna',
+              'username' => 'marcovianna',
+              'email' => 'mac.vianna@gmail.com',
+              'password' => env('PASSWORD_DEFAULT'),
+              'two_factor_google_secret_key' => '4CMLW2FWIOEUTY2HACIUPGNGGSCXXXXX',
+              'two_factor_sms_secret_key' => '4CMLW2FWIOEUTY2HACIUPGNGGSCXXXXX',
+              'two_factor_email_secret_key' => '4CMLW2FWIOEUTY2HACIUPGNGGSCXXXXX',
+              'is_root' => false
+        ]);
+
 		$businessClientUser = $this->createBusinessClientUser($client, $anderson);
+        $businessClientUserMarco = $this->createBusinessClientUser($client, $marco);
 
 		$this->activateUser($anderson, $faker);
+        $this->activateUser($marco, $faker);
 
 		$businessesRepository->createClientUserRole($businessClientUser, 'manager');
+        $businessesRepository->createClientUserRole($businessClientUserMarco, 'manager');
 
 		$this->createScripts($client);
 	}
